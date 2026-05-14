@@ -1,29 +1,128 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    body {
+        background: linear-gradient(to bottom, #f4f7fb, #ffffff);
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Modulos Tienda</h1>
+    .titulo {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .titulo h1 {
+        font-size: 70px;
+        font-weight: bold;
+        color: #081c45;
+    }
+
+    .titulo p {
+        font-size: 28px;
+        color: #555;
+    }
+
+    .contenedor-modulos {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        margin-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .modulo-card {
+        width: 220px;
+        height: 320px;
+        background: linear-gradient(180deg, #0d6efd, #003bb3);
+        border-radius: 25px;
+        text-align: center;
+        padding: 20px;
+        color: white;
+        transition: 0.3s;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+        text-decoration: none;
+    }
+
+    .modulo-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 15px 25px rgba(0,0,0,0.25);
+    }
+
+    .modulo-card img {
+        width: 110px;
+        height: 110px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .modulo-card h3 {
+        font-size: 34px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .modulo-card p {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .imagen-tienda {
+        position: absolute;
+        left: 50px;
+        top: 180px;
+        width: 320px;
+    }
+
+</style>
+<div class="titulo">
+    <h1>Modulos Tienda</h1>
     <p>Seleccionar el modulo</p>
-<button class="btn btn-primary">
-        Inventario
-    </button>
-    <button class="btn btn-primary">
-        Usuarios
-    </button>
-    <button class="btn btn-primary">
-        Clientes
-    </button>
-    <button class="btn btn-primary">
-        Ventas
-    </button>
-<button class="btn btn-primary">
-        Productos
-    </button>
-    <button class="btn btn-primary">
-        Comisiones
-    </button>
-    <button class="btn btn-primary">
-        Reportes
-    </button>
+</div>
+
+<div class="contenedor-modulos">
+
+    <a class="modulo-card" href="#">
+        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" />
+        <h3>Inventario</h3>
+        <p>Gestiona tus productos y stock</p>
+    </a>
+
+    <a class="modulo-card" href="#">
+        <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" />
+        <h3>Usuarios</h3>
+        <p>Administrar usuarios del sistema</p>
+    </a>
+
+    <a class="modulo-card" href="#">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
+        <h3>Clientes</h3>
+        <p>Gestiona la información de clientes</p>
+    </a>
+
+    <a class="modulo-card" href="#">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" />
+        <h3>Ventas</h3>
+        <p>Consulta y administra tus ventas</p>
+    </a>
+
+    <a class="modulo-card" href="#">
+        <img src="https://cdn-icons-png.flaticon.com/512/679/679720.png" />
+        <h3>Productos</h3>
+        <p>Administra tus productos</p>
+    </a>
+
+    <a class="modulo-card" href="#">
+        <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" />
+        <h3>Comisiones</h3>
+        <p>Gestiona comisiones de ventas</p>
+    </a>
+
+    <a class="modulo-card" href="#">
+        <img src="https://cdn-icons-png.flaticon.com/512/2920/2920349.png" />
+        <h3>Reportes</h3>
+        <p>Genera reportes y estadísticas</p>
+    </a>
+
 </div>

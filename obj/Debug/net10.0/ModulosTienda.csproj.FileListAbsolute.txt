@@ -95,3 +95,4 @@
 /Users/fernandogarcia/InventarioModulos/ModulosTienda/obj/Debug/net10.0/ModulosTienda.pdb
 /Users/fernandogarcia/InventarioModulos/ModulosTienda/obj/Debug/net10.0/ModulosTienda.genruntimeconfig.cache
 /Users/fernandogarcia/InventarioModulos/ModulosTienda/obj/Debug/net10.0/ref/ModulosTienda.dll
+/Users/fernandogarcia/InventarioModulos/ModulosTienda/obj/Debug/net10.0/ModulosTienda.sourcelink.json
