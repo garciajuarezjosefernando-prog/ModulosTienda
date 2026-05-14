@@ -1,6 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@{
+    var rol = "Administrador"; // Simulación de rol, Cambiar con la BD
+    
+}
 <style>
     body {
         background: linear-gradient(to bottom, #f4f7fb, #ffffff);
@@ -83,12 +87,14 @@
 
 <div class="contenedor-modulos">
 
+@if (rol == "Administrador"){
+
     <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" />
         <h3>Inventario</h3>
         <p>Gestiona tus productos y stock</p>
     </a>
-
+}
     <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" />
         <h3>Usuarios</h3>
