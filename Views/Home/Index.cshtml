@@ -1,10 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using Microsoft.AspNetCore.Http;
 @{
-    var rol = "Administrador"; // Simulación de rol, Cambiar con la BD
-    
+    var rol = Context.Session.GetString("rol") ?? "No Role";
+    var usuario = Context.Session.GetString("usuario") ?? "No User";
+    var nombre = Context.Session.GetString("nombre") ?? "No Name";
 }
+@if (rol == "VE"){
+    <h1>Hola @nombre "Vendedor"</h1>
+}else if (rol == "MA"){
+    <h1>Hola @nombre "Manager"</h1>
+}else if (rol == "AD"){
+    <h1>Hola @nombre "Administrador"</h1> 
+}
+
 <style>
     body {
         background: linear-gradient(to bottom, #f4f7fb, #ffffff);
@@ -87,7 +97,7 @@
 
 <div class="contenedor-modulos">
 
-@if (rol == "Administrador"){
+@if (rol == "AD" || rol == "MA"){
 
     <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" />
@@ -95,40 +105,46 @@
         <p>Gestiona tus productos y stock</p>
     </a>
 }
+@if (rol == "AD" || rol == "MA"){
     <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" />
         <h3>Usuarios</h3>
         <p>Administrar usuarios del sistema</p>
     </a>
-
+}
+@if (rol == "AD" || rol == "MA"){
     <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
         <h3>Clientes</h3>
         <p>Gestiona la información de clientes</p>
     </a>
-
+}
+@if (rol == "AD" || rol == "MA" || rol == "VE"){
     <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" />
         <h3>Ventas</h3>
         <p>Consulta y administra tus ventas</p>
     </a>
-
+}
+@if (rol == "AD" || rol == "MA"){
     <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/679/679720.png" />
         <h3>Productos</h3>
         <p>Administra tus productos</p>
     </a>
-
+}
+@if (rol == "AD" || rol == "MA"){
     <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" />
         <h3>Comisiones</h3>
         <p>Gestiona comisiones de ventas</p>
     </a>
-
+}
+@if (rol == "AD" || rol == "MA" || rol == "VE"){
     <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/2920/2920349.png" />
         <h3>Reportes</h3>
         <p>Genera reportes y estadísticas</p>
     </a>
-
+}
 </div>
