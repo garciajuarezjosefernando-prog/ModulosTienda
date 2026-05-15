@@ -1,0 +1,106 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    body {
+        background: linear-gradient(to bottom, #f4f7fb, #ffffff);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .titulo {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+        .titulo h1 {
+            font-size: 70px;
+            font-weight: bold;
+            color: #081c45;
+        }
+
+        .titulo p {
+            font-size: 28px;
+            color: #555;
+        }
+
+    .contenedor-modulos {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        margin-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .modulo-card {
+        width: 220px;
+        height: 320px;
+        background: linear-gradient(180deg, #0d6efd, #003bb3);
+        border-radius: 25px;
+        text-align: center;
+        padding: 20px;
+        color: white;
+        transition: 0.3s;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+        text-decoration: none;
+    }
+
+        .modulo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 25px rgba(0,0,0,0.25);
+        }
+
+        .modulo-card img {
+            width: 110px;
+            height: 110px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .modulo-card h3 {
+            font-size: 34px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .modulo-card p {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+    .imagen-tienda {
+        position: absolute;
+        left: 50px;
+        top: 180px;
+        width: 320px;
+    }
+
+</style>
+
+<div class="contenedor-modulos">
+
+
+
+    <a class="modulo-card" href="@Url.Action("NuevoUsuario", "Usuarios")">
+        <img src="https://cdn-icons-png.flaticon.com/512/72/72648.png" />
+            <h3>Nuevo</h3>
+            <p>Agregar Usuario a sistema</p>
+        </a>
+      <a class="modulo-card" href="#">
+        <img src="https://cdn-icons-png.flaticon.com/512/2522/2522138.png" />
+            <h3>Cambio</h3>
+            <p>Cambiar un usario ya existente</p>
+        </a>
+   
+        <a class="modulo-card" href="#">
+        <img src="https://cdn-icons-png.flaticon.com/512/52/52840.png" />
+            <h3>Contraseña</h3>
+            <p>Cambiar contraseña de un usuario</p>
+
+        </a>
+   
+       
+    
+</div>
