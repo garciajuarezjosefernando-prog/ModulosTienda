@@ -133,17 +133,18 @@ Cerrar Sesión
     </a>
 }
 @if (rol == "AD" || rol == "MA"){
-    <a class="modulo-card" href="#">
+        <a class="modulo-card" href="@Url.Action("Usuarios", "Usuarios")">
         <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" />
         <h3>Usuarios</h3>
         <p>Administrar usuarios del sistema</p>
     </a>
 }
 @if (rol == "AD" || rol == "MA"){
-    <a class="modulo-card" href="#">
+        <a class="modulo-card" href="#">
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
         <h3>Clientes</h3>
         <p>Gestiona la información de clientes</p>
+        
     </a>
 }
 @if (rol == "AD" || rol == "MA" || rol == "VE"){

@@ -1,0 +1,217 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="card-form">
+
+    <form asp-controller="Pedidos" asp-action="Guardar" method="post">
+
+       
+
+        <table>
+
+            <tr>
+                <td><label>Cliente</label></td>
+                <td><input type="text" name="Cliente" id="Cliente" maxlength="30" class="form-control" required /></td>
+            </tr>
+
+            <tr>
+                <td><label>Código interno del cliente</label></td>
+                <td><input type="text" name="CodigoCliente" maxlength="15" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>RFC</label></td>
+                <td><input type="text" name="RFC" maxlength="13" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Código Item</label></td>
+                <td><input type="text" name="CodigoItem" maxlength="15" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Descripción Item</label></td>
+                <td><input type="text" name="DescripcionItem" maxlength="30" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Estructura</label></td>
+                <td><input type="text" name="Estructura" maxlength="30" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Peso de estructura</label></td>
+                <td>
+                    <input type="number" name="PesoEstructura"
+                           class="form-control"
+                           step="0.01" max="999.99" />
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Tipo de Ancho</label></td>
+                <td><input type="text" name="TipoAncho" maxlength="10" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Máquina</label></td>
+                <td><input type="text" name="Maquina" maxlength="40" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Cantidad</label></td>
+                <td>
+                    <input type="number" name="TextboxDecimal"
+                           class="form-control"
+                           step="0.01" max="999999999.99" />
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Unidad de Medida</label></td>
+                <td><input type="text" name="UnidadMedida" maxlength="2" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Fecha de entrega</label></td>
+                <td><input type="date" name="FechaEntrega" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Condiciones de pago</label></td>
+                <td><input type="text" name="CondicionesPago" maxlength="50" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Dirección de entrega</label></td>
+                <td><input type="text" name="DireccionEntrega" maxlength="100" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Persona de contacto</label></td>
+                <td><input type="text" name="PersonaContacto" maxlength="100" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Teléfono de contacto</label></td>
+                <td><input type="text" name="TelefonoContacto" maxlength="15" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Email contacto</label></td>
+                <td><input type="email" name="EmailContacto" maxlength="100" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Comentarios</label></td>
+                <td>
+                    <textarea name="Comentarios" maxlength="300"
+                              class="form-control" rows="3"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Prueba de color autorizada</label></td>
+                <td><input type="checkbox" name="PruebaColor" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Gamas</label></td>
+                <td><input type="checkbox" name="Gamas" /></td>
+            </tr>
+
+            <tr>
+                <td><label>VOBO</label></td>
+                <td><input type="checkbox" name="VOBO" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Quién realiza el VoBo</label></td>
+                <td><input type="text" name="QuienVoBo" maxlength="100" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Libro de precios</label></td>
+                <td><input type="text" name="LibroPrecios" maxlength="50" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Precio Unitario</label></td>
+                <td>
+                    <input type="number" name="PrecioUnitario"
+                           class="form-control"
+                           step="0.01" max="999999999.99" />
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>TC</label></td>
+                <td><input type="text" name="TC" maxlength="50" class="form-control" /></td>
+            </tr>
+
+            <tr>
+                <td><label>IVA</label></td>
+                <td>
+                    <input type="number" name="IVA"
+                           class="form-control"
+                           step="0.01" max="999.99" />
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>IEPS</label></td>
+                <td>
+                    <input type="number" name="IEPS"
+                           class="form-control"
+                           step="0.01" max="999.99" />
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Valor total del artículo</label></td>
+                <td>
+                    <input type="number" name="ValorTotal"
+                           class="form-control"
+                           step="0.01" max="999999999.99" />
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <button type="submit" class="btn btn-primary">
+                        Guardar Cotización
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+
+        @if (TempData["PedidoGuardado"] != null)
+        {
+            <script>
+                window.onload = function () {
+                    alert("✅ La cotización se guardó correctamente.");
+
+                    // Redirección a pantalla principal
+                    window.location.href = '@Url.Action("Index", "Home")';
+                };
+            </script>
+        }
+        <script>
+
+            costear.addEventListener("change", () => {
+              Cliente.disabled = !costear.checked;
+            });
+
+
+
+        </script>
+
+
+    </form>
+
+</div>
