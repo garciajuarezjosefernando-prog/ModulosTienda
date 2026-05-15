@@ -7,20 +7,47 @@
     var usuario = Context.Session.GetString("usuario") ?? "No User";
     var nombre = Context.Session.GetString("nombre") ?? "No Name";
 }
+<div class="usuario-info">
+    
 @if (rol == "VE"){
-    <h1>Hola @nombre "Vendedor"</h1>
+    <h3>Hola @nombre "Vendedor"</h3>
+    
 }else if (rol == "MA"){
-    <h1>Hola @nombre "Manager"</h1>
-}else if (rol == "AD"){
-    <h1>Hola @nombre "Administrador"</h1> 
-}
+    <h3>Hola @nombre "Manager"</h3>
+   }else if (rol == "AD"){
+    <h3>Hola @nombre "Administrador"</h3>
+    }
+<a asp-controller="Account" 
+asp-action="Logout" 
+ class="btn-logout">
+Cerrar Sesión
+</a>
+</div>
 
 <style>
     body {
         background: linear-gradient(to bottom, #f4f7fb, #ffffff);
         font-family: Arial, Helvetica, sans-serif;
     }
+.usuario-info {
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:20px;
+    }
+    .btn-logout{
+    background:#0d6efd;
+    color:white;
+    padding:10px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
 
+.btn-logout:hover{
+    background:#0b5ed7;
+    color:white;
+}
     .titulo {
         text-align: center;
         margin-top: 40px;
@@ -120,7 +147,7 @@
     </a>
 }
 @if (rol == "AD" || rol == "MA" || rol == "VE"){
-    <a class="modulo-card" href="#">
+    <a class="modulo-card" asp-controller="Ventas" asp-action="Ventas">
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" />
         <h3>Ventas</h3>
         <p>Consulta y administra tus ventas</p>
