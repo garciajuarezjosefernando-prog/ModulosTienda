@@ -24,10 +24,59 @@
 </table>
 
 <hr />
+<div class="row">
+
+    <div class="col-md-6">
+        <label>Cliente</label>
+
+        <input type="text"
+       id="clienteBuscar"
+       class="form-control"
+       placeholder="Buscar cliente..." />
+
+<div id="listaClientes"
+     class="list-group">
+</div>
+
+
+       
+    </div>
+
+</div>
 
 <h3>Nota</h3>
+<br />
 
+<div style="
+    display:flex;
+    gap:10px;
+    align-items:center;
+">
+
+    <strong>Cliente:</strong>
+
+    <span id="clienteSeleccionado">
+    </span>
+
+</div>
+
+<br />
+<div style="
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+">
+
+    <strong>Empleado:</strong>
+
+    <span id="empleado">
+        @Context.Session.GetString("nombre")
+    </span>
+
+</div>
 <table class="table">
+
     <thead>
         <tr>
             <th>Producto</th>
@@ -37,15 +86,73 @@
 
     <tbody id="nota">
     </tbody>
+
 </table>
+
+<h3>
+    Total:
+    $<span id="total">0</span>
+</h3>
+
+<button class="btn btn-success"
+        onclick="guardarNota()">
+
+    Guardar Nota
+
+</button>
+
 
 <script>
 
+let total = 0;
+
+function agregarProducto(producto, precio){
+
+    let fila = `
+        <tr>
+            <td>${producto}</td>
+            <td>$${precio}</td>
+        </tr>
+    `;
+
+    document.getElementById("nota")
+            .innerHTML += fila;
+
+    total += parseFloat(precio);
+
+    document.getElementById("total")
+            .innerText = total.toFixed(2);
+}
+
+function guardarNota(){
+
+    let cliente =
+        document.getElementById("cliente").value;
+
+    //let empleado =
+       // document.getElementById("empleado").innerText;
+
+    alert(
+        "Venta guardada\n\n" +
+        "Cliente: " + cliente + "\n" +
+       // "Empleado: " + empleado + "\n" +
+        "Total: $" + total.toFixed(2)
+    );
+}
+
+</script>
+<script>
 document.getElementById("buscar")
 .addEventListener("keyup", function(){
 
     let texto = this.value;
+if(texto.trim() == ""){
 
+    document.getElementById("resultados")
+            .innerHTML = "";
+
+    return;
+}
     fetch('/Ventas/BuscarProductos?texto=' + texto)
     .then(response => response.json())
     .then(data => {
@@ -56,11 +163,11 @@ document.getElementById("buscar")
 
             html += `
                 <tr>
-                    <td>${p.nombre}</td>
+                    <td>${p.product}</td>
                     <td>$${p.precio}</td>
 
                     <td>
-                        <button onclick="agregarProducto('${p.nombre}', '${p.precio}')"
+                        <button onclick="agregarProducto('${p.product}', '${p.precio}')"
                                 class="btn btn-primary">
 
                             Agregar
@@ -76,17 +183,22 @@ document.getElementById("buscar")
 
 });
 
-function agregarProducto(nombre, precio){
+function agregarProducto(producto, precio){
 
     let fila = `
         <tr>
-            <td>${nombre}</td>
+            <td>${producto}</td>
             <td>$${precio}</td>
         </tr>
     `;
 
     document.getElementById("nota")
             .innerHTML += fila;
+           
+             total += Number(precio);
+
+    document.getElementById("total")
+            .innerText = total.toFixed(2);
 }
 
 </script>
