@@ -96,17 +96,7 @@
                 alert("@TempData["Error"]");
             </script>
         }
-        @if (TempData["UsuarioGuardado"] != null)
-        {
-            <script>
-                window.onload = function () {
-                    alert("✅ El usuario se guardó correctamente.");
-
-                    // Redirección a pantalla principal
-                    window.location.href = '@Url.Action("Usuarios", "Usuarios")';
-                };
-            </script>
-        }
+        
         
 
     </form>

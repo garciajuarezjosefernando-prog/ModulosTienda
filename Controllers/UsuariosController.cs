@@ -74,9 +74,13 @@ namespace ModulosTienda.Controllers
                 }
             }
 
-            
-            TempData["UsuarioGuardado"] = true;
+
+
+
+            TempData["Exito"] = "Usuario guardado correctamente";
+
             return RedirectToAction("Usuarios", "Usuarios");
+
         }
 
     }

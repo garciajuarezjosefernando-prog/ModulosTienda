@@ -100,7 +100,14 @@
             <p>Cambiar contraseña de un usuario</p>
 
         </a>
+
    
-       
     
 </div>
+
+@if (TempData["Exito"] != null)
+{
+    <script>
+        alert("@TempData["Exito"]");
+    </script>
+}
