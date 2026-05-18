@@ -75,7 +75,7 @@ namespace ModulosTienda.Controllers
             }
 
             
-            TempData["PedidoGuardado"] = true;
+            TempData["UsuarioGuardado"] = true;
             return RedirectToAction("Usuarios", "Usuarios");
         }
 

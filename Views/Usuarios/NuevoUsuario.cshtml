@@ -37,12 +37,19 @@
                 </td>
             </tr>
 
+
             <tr>
                 <td><label>Tipo</label></td>
                 <td>
-                    <input type="text" name="tipo" id="tipo" maxlength="2" class="form-control" />
+                    <select name="tipo" id="tipo" class="form-control">
+                        <option value="">-- Selecciona --</option>
+                        <option value="AD">Admin</option>
+                        <option value="MA">Master</option>
+                        <option value="VE">Vendedor</option>
+                    </select>
                 </td>
             </tr>
+
 
             
             <tr>
@@ -83,27 +90,24 @@
             }
         </script>
 
-        @if (TempData["PedidoGuardado"] != null)
+        @if (TempData["Error"] != null)
+        {
+            <script>
+                alert("@TempData["Error"]");
+            </script>
+        }
+        @if (TempData["UsuarioGuardado"] != null)
         {
             <script>
                 window.onload = function () {
-                    alert("✅ La cotización se guardó correctamente.");
+                    alert("✅ El usuario se guardó correctamente.");
 
                     // Redirección a pantalla principal
-                    window.location.href = '@Url.Action("Index", "Home")';
+                    window.location.href = '@Url.Action("Usuarios", "Usuarios")';
                 };
             </script>
         }
-        <script>
-
-            costear.addEventListener("change", () => {
-              Cliente.disabled = !costear.checked;
-            });
-
-
-
-        </script>
-
+        
 
     </form>
 
