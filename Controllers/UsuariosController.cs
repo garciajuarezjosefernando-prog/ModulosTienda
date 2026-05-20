@@ -17,6 +17,8 @@ namespace ModulosTienda.Controllers
             return View();
         }
 
+       
+
         public IActionResult CambioUsuario(string id)
         {
             
@@ -94,6 +96,39 @@ namespace ModulosTienda.Controllers
             _configuration = configuration;
         }
 
+        public IActionResult ContrasenaUsuario(string usuario)
+        {
+            Usuario model = new Usuario();
+
+            if (!string.IsNullOrEmpty(usuario))
+            {
+                using (MySqlConnection conn = new MySqlConnection(_configuration.GetConnectionString("MySqlConnection")))
+                {
+                    conn.Open();
+
+                    string query = "SELECT usuario, nombre FROM Usuarios WHERE usuario = @usuario";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@usuario", usuario);
+
+                        var reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            model.usuario = reader["usuario"].ToString();
+                            model.nombre = reader["nombre"].ToString();
+                        }
+                        else
+                        {
+                            TempData["Mensaje"] = "⚠️ Usuario no encontrado";
+                        }
+                    }
+                }
+            }
+
+            return View(model);
+        }
 
         [HttpPost]
         public IActionResult Guardar(Usuario model)
@@ -181,6 +216,38 @@ namespace ModulosTienda.Controllers
 
             TempData["ExitoCambio"] = "Usuario actualizado correctamente";
             return RedirectToAction("ListadoUsuarioEditar");
+        }
+
+        [HttpPost]
+        public IActionResult CambiarContrasena(string usuario, string nuevaContrasena)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_configuration.GetConnectionString("MySqlConnection")))
+            {
+                conn.Open();
+
+                string query = @"UPDATE Usuarios 
+                         SET contrasena = @contrasena 
+                         WHERE usuario = @usuario";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.Parameters.AddWithValue("@contrasena", nuevaContrasena);
+
+                    int filas = cmd.ExecuteNonQuery();
+
+                    if (filas > 0)
+                    {
+                        TempData["Mensaje"] = "Contraseña actualizada correctamente";
+                    }
+                    else
+                    {
+                        TempData["Mensaje"] = "❌ Error al actualizar contraseña";
+                    }
+                }
+            }
+
+            return RedirectToAction("ContrasenaUsuario");
         }
 
     }
