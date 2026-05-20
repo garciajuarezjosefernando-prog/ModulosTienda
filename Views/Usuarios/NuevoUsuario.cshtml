@@ -3,6 +3,10 @@
 *@
 @{
 }
+<button type="button" class="btn btn-secondary"
+        onclick="confirmarSalida('@Url.Action("Usuarios", "Usuarios")')">
+    ⬅ Regresar
+</button>
 <div class="card-form">
 
     <form asp-controller="Usuarios" asp-action="Guardar" method="post">
@@ -59,10 +63,7 @@
                     </button>
 
 
-                    <button type="button" class="btn btn-secondary"
-                        onclick="confirmarSalida('@Url.Action("Usuarios", "Usuarios")')">
-                        Salir sin guardar
-                    </button>
+                   
 
                 </td>
             </tr>

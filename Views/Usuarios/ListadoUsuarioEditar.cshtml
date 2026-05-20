@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Usuario>
+
+<div class="mb-3">
+    <a href="@Url.Action("Usuarios", "Usuarios")" class="btn btn-secondary">
+        ⬅ Regresar
+    </a>
+</div>
+
+
+<h2>Listado de Usuarios</h2>
+
+
+<form method="get" asp-action="ListadoUsuarioEditar" asp-controller"col-md-2">
+            <input type="text" name="buscar" class="form-control" placeholder="Buscar por usuario o correo..." />
+        
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        
+        </div>
+    
+</form>
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Tipo</th>
+            <th>Activo</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.usuario</td>
+                <td>@item.nombre</td>
+                <td>@item.correo</td>
+                <td>@item.tipo</td>
+                <td>
+                    @(item.activo ? "Sí" : "No")
+                </td>
+                <td>
+                    <a class="btn btn-warning btn-sm"
+                       href="@Url.Action("CambioUsuario", "Usuarios", new { id = item.usuario })">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["ExitoCambio"] != null)
+{
+    <script>
+        alert("@TempData["ExitoCambio"]");
+    </script>
+}

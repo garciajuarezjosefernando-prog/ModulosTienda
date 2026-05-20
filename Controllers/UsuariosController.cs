@@ -17,6 +17,76 @@ namespace ModulosTienda.Controllers
             return View();
         }
 
+        public IActionResult CambioUsuario(string id)
+        {
+            
+            Usuario user = new Usuario();
+
+            using (MySqlConnection conn = new MySqlConnection(_configuration.GetConnectionString("MySqlConnection")))
+            {
+                conn.Open();
+
+                string query = "SELECT * FROM Usuarios WHERE usuario = @usuario";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", id);
+
+                    var reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        user.usuario = reader["usuario"].ToString();
+                        user.nombre = reader["nombre"].ToString();
+                        user.contrasena = reader["contrasena"].ToString();
+                        user.correo = reader["correo"].ToString();
+                        user.tipo = reader["tipo"].ToString();
+                        user.activo = Convert.ToBoolean(reader["activo"]);
+                    }
+                }
+            }
+
+            return View(user);
+       
+        }
+
+        public IActionResult ListadoUsuarioEditar(string buscar)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            using (MySqlConnection conn = new MySqlConnection(_configuration.GetConnectionString("MySqlConnection")))
+            {
+                conn.Open();
+
+                string query = @"SELECT usuario, nombre, contrasena, correo, tipo, activo 
+                         FROM Usuarios
+                         WHERE usuario LIKE @buscar OR correo LIKE @buscar";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@buscar", "%" + buscar + "%");
+
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        lista.Add(new Usuario
+                        {
+                            usuario = reader["usuario"].ToString(),
+                            nombre = reader["nombre"].ToString(),
+                            correo = reader["correo"].ToString(),
+                            tipo = reader["tipo"].ToString(),
+                            activo = Convert.ToBoolean(reader["activo"])
+                        });
+                    }
+                }
+            }
+
+            return View(lista);
+        }
+
+       
+
         private readonly IConfiguration _configuration;
 
         public UsuariosController(IConfiguration configuration)
@@ -81,6 +151,36 @@ namespace ModulosTienda.Controllers
 
             return RedirectToAction("Usuarios", "Usuarios");
 
+        }
+
+        [HttpPost]
+        public IActionResult GuardarCambios(Usuario model)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_configuration.GetConnectionString("MySqlConnection")))
+            {
+                conn.Open();
+
+                string query = @"UPDATE Usuarios 
+                         SET nombre=@nombre,
+                             correo=@correo,
+                             tipo=@tipo,
+                             activo=@activo
+                         WHERE usuario=@usuario";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", model.usuario);
+                    cmd.Parameters.AddWithValue("@nombre", model.nombre);
+                    cmd.Parameters.AddWithValue("@correo", model.correo);
+                    cmd.Parameters.AddWithValue("@tipo", model.tipo);
+                    cmd.Parameters.AddWithValue("@activo", model.activo);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            TempData["ExitoCambio"] = "Usuario actualizado correctamente";
+            return RedirectToAction("ListadoUsuarioEditar");
         }
 
     }
