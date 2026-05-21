@@ -2,7 +2,11 @@
     ViewData["Title"] = "Ventas";
 }
 
-
+@{
+    var rol = Context.Session.GetString("rol") ?? "No Role";
+    //var usuario = Context.Session.GetString("usuario") ?? "No User";
+    //var nombre = Context.Session.GetString("nombre") ?? "No Name";
+}
 <input type="text"
        id="buscar"
        class="form-control"
@@ -27,7 +31,7 @@
 <div class="row">
 
     <div class="col-md-6">
-        <label>Cliente</label>
+        <label>Buscar Cliente</label>
 
         <input type="text"
        id="clienteBuscar"
@@ -94,23 +98,39 @@
     $<span id="total">0</span>
 </h3>
 
-<button class="btn btn-success"
-        onclick="guardarNota()">
+<div style="
+    display:flex;
+    gap:10px;
+">
 
-    Guardar Nota
+    <button
+    type="button"
+    class="btn btn-success"
+    onclick="guardarNota()">
+        Guardar Nota
+    </button>
 
-</button>
+
+@if (rol == "AD" || rol == "MA"){
+    <button class="btn btn-primary"
+            onclick="cobrarNota()">
+
+        Cobrar Nota
+
+    </button>
+}
+</div>
 
 
 <script>
-
+let productosVenta = [];
 let total = 0;
 
-function agregarProducto(producto, precio){
+function agregarProducto(nombre, precio){
 
     let fila = `
         <tr>
-            <td>${producto}</td>
+            <td>${nombre}</td>
             <td>$${precio}</td>
         </tr>
     `;
@@ -118,25 +138,91 @@ function agregarProducto(producto, precio){
     document.getElementById("nota")
             .innerHTML += fila;
 
-    total += parseFloat(precio);
+    total += Number(precio);
 
     document.getElementById("total")
             .innerText = total.toFixed(2);
+
+    productosVenta.push({
+
+        producto: nombre,
+
+        cantidad: 1,
+
+        total: Number(precio)
+    });
+    console.log(productosVenta);
 }
 
 function guardarNota(){
 
     let cliente =
-        document.getElementById("cliente").value;
+        document.getElementById("clienteBuscar").value;
 
-    //let empleado =
-       // document.getElementById("empleado").innerText;
+    if(cliente.trim() == "")
+    {
+        alert("Selecciona un cliente");
+        return;
+    }
+
+    if(productosVenta.length == 0)
+    {
+        alert("Agrega al menos un producto");
+        return;
+    }
+
+    let venta = {
+
+        idCliente: 1,
+
+        subTotal: total,
+
+        iva: total * 0.16,
+
+        cantidadTotl: total * 1.16,
+
+        productos: productosVenta
+    };
+
+    fetch('/Ventas/GuardarNota', {
+
+        method: 'POST',
+
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify(venta)
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if(data.ok)
+        {
+            alert("Nota guardada correctamente");
+        }
+        else
+        {
+            alert(data.mensaje);
+        }
+
+    })
+
+    .catch(error => {
+
+        alert(error);
+
+    });
+}
+
+function cobrarNota(){
 
     alert(
-        "Venta guardada\n\n" +
-        "Cliente: " + cliente + "\n" +
-       // "Empleado: " + empleado + "\n" +
-        "Total: $" + total.toFixed(2)
+        "Total a cobrar: $" +
+        total.toFixed(2)
     );
 }
 
@@ -183,22 +269,66 @@ if(texto.trim() == ""){
 
 });
 
-function agregarProducto(producto, precio){
 
-    let fila = `
-        <tr>
-            <td>${producto}</td>
-            <td>$${precio}</td>
-        </tr>
-    `;
+</script>
+<script>
 
-    document.getElementById("nota")
-            .innerHTML += fila;
-           
-             total += Number(precio);
+document.getElementById("clienteBuscar")
+.addEventListener("keyup", function(){
 
-    document.getElementById("total")
-            .innerText = total.toFixed(2);
+    let texto = this.value;
+
+    if(texto.trim() == ""){
+
+        document.getElementById(
+            "listaClientes"
+        ).innerHTML = "";
+
+        return;
+    }
+
+    fetch('/Ventas/BuscarClientes?texto=' + texto)
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        let html = "";
+
+        data.forEach(c => {
+
+            html += `
+                <button
+                    class="list-group-item list-group-item-action"
+
+                    onclick="seleccionarCliente('${c.nombre}')">
+
+                    ${c.nombre}
+
+                </button>
+            `;
+        });
+
+        document.getElementById(
+            "listaClientes"
+        ).innerHTML = html;
+    });
+
+});
+
+function seleccionarCliente(nombre){
+
+    document.getElementById(
+        "clienteSeleccionado"
+    ).innerText = nombre;
+
+    document.getElementById(
+        "clienteBuscar"
+    ).value = nombre;
+
+    document.getElementById(
+        "listaClientes"
+    ).innerHTML = "";
 }
 
 </script>
