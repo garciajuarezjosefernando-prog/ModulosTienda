@@ -1,0 +1,3 @@
+ALTER TABLE VentaDetalle
+ADD COLUMN precioVentas DECIMAL(18,2),
+ADD COLUMN usuarioVenta VARCHAR(50);
