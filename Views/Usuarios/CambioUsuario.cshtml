@@ -1,0 +1,77 @@
+﻿@model Usuario
+<button type="button" class="btn btn-secondary"
+        onclick="confirmarSalida('@Url.Action("Usuarios", "Usuarios")')">
+    ⬅ Regresar
+</button>
+
+<h2>Editar Usuario</h2>
+
+<form asp-controller="Usuarios" asp-action="GuardarCambios" method="post">
+
+    <input type="hidden" asp-for="usuario" />
+    <table class="table">
+
+        
+
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input asp-for="nombre" class="form-control" /></td>
+        </tr>
+
+        
+
+        <tr>
+            <td><label>Correo</label></td>
+            <td><input asp-for="correo" class="form-control" /></td>
+        </tr>
+
+        <tr>
+            <td><label>Tipo</label></td>
+            <td>
+                <select asp-for="tipo" class="form-control">
+                    <option value="AD">Admin</option>
+                    <option value="MA">Master</option>
+                    <option value="VE">Vendedor</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Activo</label></td>
+            <td>
+                <input asp-for="activo" type="checkbox" />
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn btn-success">
+                    Guardar Cambios
+                </button>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+<script>
+    let formularioModificado = false;
+
+    // Detectar cambios en cualquier input del formulario
+    document.querySelectorAll("input").forEach(input => {
+        input.addEventListener("change", () => {
+            formularioModificado = true;
+        });
+    });
+
+    function confirmarSalida(url) {
+        if (formularioModificado) {
+            let confirmar = confirm("⚠️ Tienes cambios sin guardar. ¿Seguro que deseas salir?");
+            if (confirmar) {
+                window.location.href = url;
+            }
+        } else {
+            window.location.href = url;
+        }
+    }
+</script>

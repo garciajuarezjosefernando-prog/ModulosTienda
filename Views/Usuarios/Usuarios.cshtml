@@ -88,19 +88,26 @@
             <h3>Nuevo</h3>
             <p>Agregar Usuario a sistema</p>
         </a>
-      <a class="modulo-card" href="#">
+    <a class="modulo-card" href="@Url.Action("ListadoUsuarioEditar", "Usuarios")">
         <img src="https://cdn-icons-png.flaticon.com/512/2522/2522138.png" />
             <h3>Cambio</h3>
             <p>Cambiar un usario ya existente</p>
         </a>
-   
-        <a class="modulo-card" href="#">
+
+    <a class="modulo-card" href="@Url.Action("ContrasenaUsuario", "Usuarios")">
         <img src="https://cdn-icons-png.flaticon.com/512/52/52840.png" />
             <h3>Contraseña</h3>
             <p>Cambiar contraseña de un usuario</p>
 
         </a>
+
    
-       
     
 </div>
+
+@if (TempData["Exito"] != null)
+{
+    <script>
+        alert("@TempData["Exito"]");
+    </script>
+}
