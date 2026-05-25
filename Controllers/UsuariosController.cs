@@ -199,7 +199,8 @@ namespace ModulosTienda.Controllers
                          SET nombre=@nombre,
                              correo=@correo,
                              tipo=@tipo,
-                             activo=@activo
+                             activo=@activo,
+                             contrasena = @contrasena
                          WHERE usuario=@usuario";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -208,6 +209,7 @@ namespace ModulosTienda.Controllers
                     cmd.Parameters.AddWithValue("@nombre", model.nombre);
                     cmd.Parameters.AddWithValue("@correo", model.correo);
                     cmd.Parameters.AddWithValue("@tipo", model.tipo);
+                    cmd.Parameters.AddWithValue("@contrasena", model.contrasena);
                     cmd.Parameters.AddWithValue("@activo", model.activo);
 
                     cmd.ExecuteNonQuery();
