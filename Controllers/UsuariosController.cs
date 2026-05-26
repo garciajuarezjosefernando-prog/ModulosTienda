@@ -6,7 +6,7 @@ namespace ModulosTienda.Controllers
 {
     public class UsuariosController : Controller
     {
-
+        
         public IActionResult Usuarios()
         {
             return View();

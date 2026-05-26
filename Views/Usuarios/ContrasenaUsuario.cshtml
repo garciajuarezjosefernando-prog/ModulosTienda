@@ -5,7 +5,7 @@
 </button>
 <h2>Cambiar Contraseña de Usuario</h2>
 
-<!-- 🔍 Buscar usuario -->
+@* <!-- 🔍 Buscar usuario -->
 <form method="get" asp-action="ContrasenaUsuario" asp-controller"col-md-4">
 
             <input type="text" name="usuario" class="form-control" placeholder="Ingresa el usuario" required />
@@ -14,7 +14,7 @@
             <button type="submit" class="btn btn-primary">Buscar</button>
         </div>
     <
-</form>
+</form> *@
 
 @if (Model != null && !string.IsNullOrEmpty(Model.usuario))
 {
@@ -77,5 +77,6 @@
 {
     <script>
         alert("@TempData["Mensaje"]");
+        window.location.href = '@Url.Action("Usuarios", "Usuarios")';
     </script>
 }
