@@ -7,6 +7,7 @@ CREATE TABLE [dbo].[Productos](
 	[precio] [decimal](8, 3) NOT NULL,
 	[maximoAlm] [smallint] NOT NULL,
 	[minimoAlm] [smallint] NOT NULL,
+	[porComision] [decimal](3,2) NOT NULL
  CONSTRAINT [PK_producto] PRIMARY KEY CLUSTERED 
 (
 	[producto] ASC

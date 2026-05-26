@@ -1,88 +1,85 @@
 is_global = true
 build_property.TargetFramework = net9.0
-build_property.TargetFrameworkIdentifier = .NETCoreApp
-build_property.TargetFrameworkVersion = v9.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
-build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ModulosTienda
 build_property.RootNamespace = ModulosTienda
-build_property.ProjectDir = /Users/fernandogarcia/InventarioModulos/ModulosTienda/
+build_property.ProjectDir = C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/fernandogarcia/InventarioModulos/ModulosTienda
+build_property.MSBuildProjectDirectory = C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Usuarios/CambioUsuario.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvQ2FtYmlvVXN1YXJpby5jc2h0bWw=
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Usuarios/CambioUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ2FtYmlvVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Usuarios/ContrasenaUsuario.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvQ29udHJhc2VuYVVzdWFyaW8uY3NodG1s
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Usuarios/ContrasenaUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ29udHJhc2VuYVVzdWFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Usuarios/ListadoUsuarioEditar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvTGlzdGFkb1VzdWFyaW9FZGl0YXIuY3NodG1s
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Usuarios/ListadoUsuarioEditar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcTGlzdGFkb1VzdWFyaW9FZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Usuarios/NuevoUsuario.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvTnVldm9Vc3VhcmlvLmNzaHRtbA==
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Usuarios/NuevoUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcTnVldm9Vc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Usuarios/Usuarios.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvVXN1YXJpb3MuY3NodG1s
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Usuarios/Usuarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcVXN1YXJpb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Ventas/BuscarClientes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmVudGFzL0J1c2NhckNsaWVudGVzLmNzaHRtbA==
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Ventas/BuscarClientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFzXEJ1c2NhckNsaWVudGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Ventas/ConsultaVentas.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmVudGFzL0NvbnN1bHRhVmVudGFzLmNzaHRtbA==
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Ventas/ConsultaVentas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFzXENvbnN1bHRhVmVudGFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Ventas/ventas.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmVudGFzL3ZlbnRhcy5jc2h0bWw=
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Ventas/ventas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFzXHZlbnRhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-yfjzw6v62w
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-t1mc6rlpoq
