@@ -76,7 +76,7 @@ Cerrar Sesión
     .modulo-card {
         width: 220px;
         height: 320px;
-        background: linear-gradient(180deg, #CC27F5,#3A0344);
+        background: linear-gradient(180deg, #0d6efd, #003bb3);
         border-radius: 25px;
         text-align: center;
         padding: 20px;
@@ -118,7 +118,7 @@ Cerrar Sesión
 
 </style>
 <div class="titulo">
-    <h1>Bren House</h1>
+    <h1>Modulos Tienda</h1>
     <p>Seleccionar el modulo</p>
 </div>
 
@@ -132,8 +132,7 @@ Cerrar Sesión
         <p>Gestiona tus productos y stock</p>
     </a>
 }
-    @if (rol == "AD" || rol == "MA" || rol == "VE")
-    {
+@if (rol == "AD" || rol == "MA"){
         <a class="modulo-card" href="@Url.Action("Usuarios", "Usuarios")">
         <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" />
         <h3>Usuarios</h3>
@@ -149,7 +148,7 @@ Cerrar Sesión
     </a>
 }
 @if (rol == "AD" || rol == "MA" || rol == "VE"){
-    <a class="modulo-card" asp-controller="Ventas" asp-action="Ventas">
+    <a class="modulo-card" asp-controller="Ventas" asp-action="ConsultaVentas">
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" />
         <h3>Ventas</h3>
         <p>Consulta y administra tus ventas</p>

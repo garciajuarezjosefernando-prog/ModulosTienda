@@ -11,5 +11,7 @@ namespace ModulosTienda.Models
         public decimal CantidadTotl { get; set; }
 
         public List<DetalleVenta> productos { get; set; }
+        public int IdVenta { get; set; }
+        public string Estatus { get; set; }
     }
 }

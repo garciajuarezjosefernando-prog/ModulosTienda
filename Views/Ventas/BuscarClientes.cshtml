@@ -1,0 +1,207 @@
+@{
+    ViewData["Title"] = "Buscar Ventas";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header text-white"
+        style="
+        background: linear-gradient(
+        180deg,
+        #CC27F5,
+        #3A0344
+        );
+        ">
+
+                <div class="d-flex
+        justify-content-between
+        align-items-center">
+
+            <h4 class="mb-0">
+                BUSCAR VENTAS
+            </h4>
+
+            <a
+                href="/Ventas/ConsultaVentas"
+
+                class="btn btn-light">
+
+                ← Regresar
+
+            </a>
+
+        </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-2">
+
+                    <label>Folio</label>
+
+                    <input
+                        type="text"
+                        id="folio"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label>Cliente</label>
+
+                    <input
+                        type="text"
+                        id="cliente"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <label>Status</label>
+
+                    <select
+                    id="estado"
+                    class="form-control">
+
+                    <option value="">
+                        TODOS
+                    </option>
+
+                    <option value="AC">
+                        Activo
+                    </option>
+
+                    <option value="PA">
+                        Pagado
+                    </option>
+
+                    <option value="CA">
+                        Cancelado
+                    </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <label>Desde</label>
+
+                    <input
+                        type="date"
+                        id="desde"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <label>Hasta</label>
+
+                    <input
+                        type="date"
+                        id="hasta"
+                        class="form-control">
+
+                </div>
+
+            </div>
+
+            <div class="mt-3">
+
+                <button
+                    type="button"
+                    class="btn text-white"
+                    style="
+                    background:
+                    linear-gradient(
+                    180deg,
+                    #CC27F5,
+                    #3A0344
+                    );
+"
+                    onclick="buscar()">
+
+                    Buscar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="resultado"
+    class="mt-4">
+
+    </div>
+
+</div>
+
+<script>
+
+function buscar()
+{
+    let folio =
+        document.getElementById("folio").value;
+
+    let cliente =
+        document.getElementById("cliente").value;
+
+    let estado =
+        document.getElementById("estado").value;
+
+    let desde =
+        document.getElementById("desde").value;
+
+    let hasta =
+        document.getElementById("hasta").value;
+
+    fetch(
+
+        "/Ventas/ObtenerVentas?" +
+
+        "folio=" + encodeURIComponent(folio) +
+
+        "&cliente=" + encodeURIComponent(cliente) +
+
+        "&estado=" + encodeURIComponent(estado) +
+
+        "&desde=" + encodeURIComponent(desde) +
+
+        "&hasta=" + encodeURIComponent(hasta)
+
+    )
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if(data.length == 0)
+        {
+            alert(
+                "No se encontraron registros"
+            );
+
+            return;
+        }
+
+        localStorage.setItem(
+            "ventasFiltradas",
+            JSON.stringify(data)
+        );
+
+        window.location.href =
+            "/Ventas/ConsultaVentas";
+    });
+}
+
+</script>

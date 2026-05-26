@@ -7,5 +7,6 @@ namespace ModulosTienda.Models
         public int Cantidad { get; set; }
 
         public decimal Total { get; set; }
+        public decimal Precio { get; set; }
     }
 }
