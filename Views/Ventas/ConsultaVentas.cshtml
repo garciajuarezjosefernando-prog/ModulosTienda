@@ -102,34 +102,30 @@
 
 window.onload = function ()
 {
-    const params =
-        new URLSearchParams(
-            window.location.search
+    let ventasGuardadas =
+        localStorage.getItem(
+            "ventasFiltradas"
         );
 
-    let folio =
-        params.get("folio") || "";
+    if(ventasGuardadas)
+    {
+        let data =
+            JSON.parse(
+                ventasGuardadas
+            );
 
-    let cliente =
-        params.get("cliente") || "";
+        mostrarVentas(data);
 
-    let estado =
-        params.get("estado") || "";
+        localStorage.removeItem(
+            "ventasFiltradas"
+        );
 
-    let desde =
-        params.get("desde") || "";
+        return;
+    }
 
-    let hasta =
-        params.get("hasta") || "";
-
-    cargarVentas(
-        folio,
-        cliente,
-        estado,
-        desde,
-        hasta
-    );
+    cargarVentas();
 };
+
 
 function cargarVentas(folio = "", cliente = "", estado = "", desde = "", hasta = "")
 {
@@ -139,7 +135,7 @@ function cargarVentas(folio = "", cliente = "", estado = "", desde = "", hasta =
 
     .then(data => {
 
-        let html = "";
+    mostrarVentas(data);
 
         data.forEach(v => {
 
@@ -220,6 +216,88 @@ function cargarVentas(folio = "", cliente = "", estado = "", desde = "", hasta =
         ).innerHTML = html;
 
     });
+}
+function mostrarVentas(data)
+{
+    let html = "";
+
+    data.forEach(v => {
+
+        let estadoTexto = "";
+        let colorEstado = "";
+
+        if(v.estado == "AC")
+        {
+            estadoTexto = "Abierta";
+            colorEstado = "green";
+        }
+
+        if(v.estado == "PA")
+        {
+            estadoTexto = "Pagada";
+            colorEstado = "blue";
+        }
+
+        if(v.estado == "CA")
+        {
+            estadoTexto = "Cancelada";
+            colorEstado = "red";
+        }
+
+        let puedeEliminar =
+            v.puedeEliminar;
+
+        html += `
+            <tr>
+
+                <td>${v.folio}</td>
+
+                <td>${v.cliente}</td>
+
+                <td>
+                    $${v.importe}
+                </td>
+
+                <td
+                    style="
+                        color:${colorEstado};
+                        font-weight:bold;
+                    ">
+                    ${estadoTexto}
+                </td>
+
+                <td>
+
+                    <button
+                        class="btn btn-dark btn-sm"
+                        onclick="editar(${v.folio})">
+
+                        ✏️
+
+                    </button>
+
+                    <button
+                        class="btn btn-danger btn-sm"
+                        onclick="eliminar(${v.folio})"
+
+                        ${!puedeEliminar
+                            ? "disabled"
+                            : ""
+                        }>
+
+                        ❌
+
+                    </button>
+
+                </td>
+
+            </tr>
+        `;
+    });
+
+    document.getElementById(
+        "tablaVentas"
+    ).innerHTML = html;
 }
 
 function editar(idVenta)
