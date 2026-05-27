@@ -42,12 +42,10 @@ background: linear-gradient(
             </h5>
 
             <a
+                id="btnRegresar"
                 href="/Ventas/ConsultaVentas"
-
                 class="btn btn-light">
-
                 ← Regresar
-
             </a>
 
         </div>
@@ -139,6 +137,7 @@ background: linear-gradient(
                     <tr>
 
                         <th>Producto</th>
+                        <th>Detalle</th>
                         <th width="120">
                             Cantidad
                         </th>
@@ -151,7 +150,7 @@ background: linear-gradient(
                             Subtotal
                         </th>
 
-                        <th width="120"></th>
+                        <th width="120">Eliminar Producto</th>
 
                     </tr>
 
@@ -270,6 +269,8 @@ let idVentaEditar =
 let productosVenta = [];
 let total = 0;
 let idClienteSeleccionado = 0;
+let notaCerrada = false;
+
 function cargarVenta()
 {
     fetch(
@@ -280,7 +281,11 @@ function cargarVenta()
     .then(response => response.json())
 
     .then(data => {
-
+        if(data.venta.estatus == "PA")
+        {
+            notaCerrada = true;
+            bloquearPantalla();
+        }
         document.getElementById(
             "clienteBuscar"
         ).value =
@@ -294,20 +299,18 @@ function cargarVenta()
         data.detalle.forEach(p => {
 
             productosVenta.push({
-
-    producto:
-        p.producto,
-
-    cantidad:
-        Number(p.cantidad),
-
-    precio:
-    Number(p.precio) /
-    Number(p.cantidad),
-
-    total:
-        Number(p.total)
-});
+                producto:
+                    p.producto,
+                cantidad:
+                    Number(p.cantidad),
+                detalle:
+                    p.detalle,
+                precio:
+                    Number(p.precio) /
+                    Number(p.cantidad),
+                total:
+                    Number(p.total)
+            });
         });
 
         actualizarNota();
@@ -321,7 +324,7 @@ window.onload = function ()
     }
 }
 
-function agregarProducto(nombre, precio)
+function agregarProducto(nombre, precio, detalle)
 {
     precio = Number(precio);
 
@@ -344,6 +347,8 @@ function agregarProducto(nombre, precio)
 
             producto: nombre,
 
+            detalle: detalle,
+        
             cantidad: 1,
 
             precio: precio,
@@ -354,6 +359,25 @@ function agregarProducto(nombre, precio)
     }
 
     actualizarNota();
+}
+
+function bloquearPantalla()
+{
+    document
+    .querySelectorAll(
+        "button,input"
+    )
+
+    .forEach(x => {
+
+        if(
+            x.id != "btnRegresar"
+        )
+        {
+            x.disabled = true;
+        }
+
+    });
 }
 
 function guardarNota(esPago = false){
@@ -457,17 +481,17 @@ function actualizarNota()
             <td>
                 ${p.producto}
             </td>
-
+            <td>
+                ${p.detalle || ''}
+            </td>
             <td>
 
                 <input
                     type="number"
+                    ${notaCerrada ? "disabled" : ""}
                     min="1"
-
                     value="${p.cantidad}"
-
                     class="form-control"
-
                     onchange="
                         cambiarCantidad(
                             ${index},
@@ -477,8 +501,21 @@ function actualizarNota()
 
             </td>
 
-            <td>
-                $${precioConIva.toFixed(2)}
+           <td>
+
+                <input
+                    type="number"
+                    ${notaCerrada ? "disabled" : ""}
+                    step="0.01"
+                    min="0"
+                    value="${precioConIva.toFixed(2)}"
+                    class="form-control"
+                    onchange="
+                        cambiarPrecio(
+                            ${index},
+                            this.value
+                        )
+                    ">
             </td>
 
             <td>
@@ -489,15 +526,13 @@ function actualizarNota()
 
                 <button
                     class="btn btn-danger btn-sm"
-
+                    ${notaCerrada ? "disabled" : ""}
                     onclick="
                         eliminarProducto(
                             '${p.producto}'
                         )
                     ">
-
                     ❌
-
                 </button>
 
             </td>
@@ -526,6 +561,20 @@ function cambiarCantidad(index, cantidad)
 
     productosVenta[index].cantidad =
         cantidad;
+
+    actualizarNota();
+}
+function cambiarPrecio(index, precio)
+{
+    precio = Number(precio);
+
+    if(precio <= 0)
+    {
+        precio = 1;
+    }
+
+    productosVenta[index].precio =
+        precio;
 
     actualizarNota();
 }
@@ -577,13 +626,15 @@ if(texto.trim() == ""){
             html += `
                 <tr>
                     <td>${p.product}</td>
+                    
                    <td>$${(p.precio * 1.16).toFixed(2)}</td>
 
                     <td>
                         <button onclick="
                             agregarProducto(
                                 '${p.product}',
-                                '${(p.precio * 1.16).toFixed(2)}'
+                                '${(p.precio * 1.16).toFixed(2)}',
+                                '${p.detalle ?? ""}'
                             )"
                                 class="btn btn-primary">
 

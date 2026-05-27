@@ -65,7 +65,8 @@
 
                             Product =
                                 reader["producto"]?.ToString() ?? "",
-
+                             Detalle =
+                                reader["descripcion"]?.ToString() ?? "",
                             Precio =
                                 Convert.ToDecimal(reader["precio"])
                         });
@@ -318,7 +319,7 @@
                 "@producto",
                 p.Producto
             );
-
+            
             cmdDetalle.Parameters.AddWithValue(
                 "@cantidad",
                 p.Cantidad
@@ -550,7 +551,9 @@
 
                     total =
                         reader["cantidadTotl"],
+                    estatus =
 
+                        reader["Estatus"],
                     fecha =
                     reader["FechaVenta"] == DBNull.Value
                     ? ""
@@ -856,7 +859,8 @@
                 v.idVenta,
                 v.idCliente,
                 c.nombre,
-                v.cantidadTotl
+                v.cantidadTotl,
+                v.Estatus
 
             FROM Ventas v
 
@@ -889,8 +893,12 @@
                     cliente =
                         reader["nombre"],
 
-                    total =
-                        reader["cantidadTotl"]
+                   total =
+                    reader["cantidadTotl"],
+
+                estatus =
+                    reader["Estatus"]
+
                 };
             }
 
@@ -902,12 +910,16 @@
             string q2 =
             @"SELECT
 
-                producto,
-                cantidad,
-                precioVentas,
-                total
+                vd.producto,
+                p.descripcion,
+                vd.cantidad,
+                vd.precioVentas,
+                vd.total
 
-            FROM VentaDetalle
+            FROM VentaDetalle vd
+
+            LEFT JOIN Productos p
+                ON p.producto = vd.producto
 
             WHERE TRIM(idVenta)=@idVenta";
 
@@ -928,7 +940,8 @@
                 {
                     producto =
                         r2["producto"],
-
+                    detalle =
+                        r2["descripcion"],
                     cantidad =
                         r2["cantidad"],
 

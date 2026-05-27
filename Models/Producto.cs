@@ -10,5 +10,6 @@ namespace ModulosTienda.Models
         public string  UM { get; set; }
         public int Maximo { get; set; }
         public int Minimo { get; set; }
+        public string Detalle { get; set; }
     }
 }
