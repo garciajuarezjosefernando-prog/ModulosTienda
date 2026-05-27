@@ -13,4 +13,18 @@
         public string tipo { get; set; }
         public bool activo { get; set; }
     }
+
+
+    public class ProductoSTRUC
+    {
+        public string producto { get; set; }
+        public string descripcion { get; set; }
+        public string UM { get; set; }
+        public decimal precio { get; set; }
+        public int maximoAlm { get; set; }
+        public int minimoAlm { get; set; }
+        public decimal porComision { get; set; }
+    }
+
+
 }

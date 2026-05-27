@@ -15,7 +15,8 @@ CREATE TABLE [dbo].[Productos](
 ) ON [PRIMARY]
 GO
 
---UM es la unidad de medida 
+----UM es la unidad de medida 
 ----KG Kilogramos
 ----PZ Pieza
 ----LT Litros
+----BT Botella
