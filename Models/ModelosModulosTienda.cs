@@ -1,4 +1,6 @@
-﻿namespace ModulosTienda.Models
+﻿using Org.BouncyCastle.Crypto.Utilities;
+
+namespace ModulosTienda.Models
 {
     public class ModelosModulosTienda
     {
@@ -24,6 +26,8 @@
         public int maximoAlm { get; set; }
         public int minimoAlm { get; set; }
         public decimal porComision { get; set; }
+        public bool activo { get; set; }
+        
     }
 
 

@@ -86,7 +86,7 @@
     <tr>
         <td><label>% Comisión</label></td>
         <td>
-            <input asp-for="porComision" type="number" step="0.01" class="form-control" required />
+                <input asp-for="porComision" type="number" min="0" max="100" class="form-control" required />
         </td>
     </tr>
 

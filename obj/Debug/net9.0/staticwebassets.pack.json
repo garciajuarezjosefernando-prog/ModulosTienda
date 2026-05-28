@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\bernyv\\source\\repos\\garciajuarezjosefernando-prog\\ModulosTienda\\wwwroot\\img\\logo.jpeg",
+      "PackagePath": "staticwebassets\\img\\logo.jpeg"
+    },
+    {
       "Id": "C:\\Users\\bernyv\\source\\repos\\garciajuarezjosefernando-prog\\ModulosTienda\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

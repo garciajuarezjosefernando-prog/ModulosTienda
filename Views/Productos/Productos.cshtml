@@ -87,31 +87,21 @@
 
 <div class="contenedor-modulos">
 
-    @if (rol == "AD" || rol == "MA")
-    {
-        <a class="modulo-card" href="@Url.Action("NuevoProducto", "Productos")
-            ">
+    
+        <a class="modulo-card" href="@Url.Action("NuevoProducto", "Productos")">
             <img src="https://cdn-icons-png.flaticon.com/512/8676/8676496.png" />
             <h3>Nuevo</h3>
             <p>Agregar Productos a sistema</p>
         </a>
 
-        <a class="modulo-card" href="@Url.Action("ListadoUsuarioEditar", "Usuarios")">
+    <a class="modulo-card" href="@Url.Action("ListadoProductoEditar", "Productos")">
             <img src="https://cdn-icons-png.flaticon.com/512/4989/4989753.png" />
             <h3>Cambio</h3>
             <p>Cambiar un producto ya existente</p>
         </a>
         
-    }
-    else
-    {
-        <a class="modulo-card" href="@Url.Action("ContrasenaUsuario", "Usuarios", new { usuario = usuario })">
-            <img src="https://cdn-icons-png.flaticon.com/512/52/52840.png" />
-            <h3>Contraseña</h3>
-            <p>Cambiar contraseña de un usuario</p>
-
-        </a>
-    }
+   
+    
 
 
 

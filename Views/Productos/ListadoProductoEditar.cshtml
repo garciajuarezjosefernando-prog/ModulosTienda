@@ -1,0 +1,124 @@
+﻿@model IEnumerable<ProductoSTRUC>
+
+<div class="mb-3">
+    <a href="@Url.Action("Productos", "Productos")" class="btn btn-secondary" style=" background:
+                linear-gradient(
+                180deg,
+                #CC27F5,
+                #3A0344
+                );
+                border:none;">
+        ⬅ Regresar
+    </a>
+</div>
+
+
+<div class="card shadow">
+
+    <div class="card-header text-white"
+         style="
+                background:
+                linear-gradient(
+                    180deg,
+                    #CC27F5,
+                    #3A0344
+                );
+             ">
+
+        <div class="d-flex justify-content-between">
+
+            <h3>LISTADO DE PRODUCTOS</h3>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<form method="get" asp-action="ListadoProductoEditar" asp-controller"col-md-2">
+    <input type="text" name="buscar" class="form-control" placeholder="Buscar por producto o descripción..." />
+
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-primary" style=" background:
+                linear-gradient(
+                180deg,
+                #CC27F5,
+                #3A0344
+                );
+                border:none;">
+            Buscar
+        </button>
+
+    </div>
+
+</form>
+
+
+
+<table class="table table-bordered table-striped">
+
+
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Descripcion</th>
+            <th>Activo</th>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.producto</td>
+                <td>@item.descripcion</td>
+                <td>@(item.activo ? "Sí" : "No")</td>
+               
+                <td>
+                    <a class="btn btn-warning btn-sm" style=" background:
+                linear-gradient(
+                180deg,
+                #27F58E,
+                #079C52
+                );
+                border:none;"
+                       href="@Url.Action("EditarProducto", "Productos", new { id = item.producto })">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["ExitoCambio"] != null)
+{
+    <script>
+        alert("@TempData["ExitoCambio"]");
+    </script>
+}
+
+<script>
+    let formularioModificado = false;
+
+    // Detectar cambios en cualquier input del formulario
+    document.querySelectorAll("input").forEach(input => {
+        input.addEventListener("change", () => {
+            formularioModificado = true;
+        });
+    });
+
+    function confirmarSalida(url) {
+        if (formularioModificado) {
+            let confirmar = confirm("⚠️ Tienes cambios sin guardar. ¿Seguro que deseas salir?");
+            if (confirmar) {
+                window.location.href = url;
+            }
+        } else {
+            window.location.href = url;
+        }
+    }
+</script>
