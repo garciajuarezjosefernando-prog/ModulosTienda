@@ -27,6 +27,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Comisiones/Comisiones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taXNpb25lcy9Db21pc2lvbmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

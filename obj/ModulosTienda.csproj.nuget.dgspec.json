@@ -1,36 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bernyv\\source\\repos\\garciajuarezjosefernando-prog\\ModulosTienda\\ModulosTienda.csproj": {}
+    "/Users/fernandogarcia/InventarioModulos/ModulosTienda/ModulosTienda.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bernyv\\source\\repos\\garciajuarezjosefernando-prog\\ModulosTienda\\ModulosTienda.csproj": {
+    "/Users/fernandogarcia/InventarioModulos/ModulosTienda/ModulosTienda.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bernyv\\source\\repos\\garciajuarezjosefernando-prog\\ModulosTienda\\ModulosTienda.csproj",
+        "projectUniqueName": "/Users/fernandogarcia/InventarioModulos/ModulosTienda/ModulosTienda.csproj",
         "projectName": "ModulosTienda",
-        "projectPath": "C:\\Users\\bernyv\\source\\repos\\garciajuarezjosefernando-prog\\ModulosTienda\\ModulosTienda.csproj",
-        "packagesPath": "C:\\Users\\bernyv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bernyv\\source\\repos\\garciajuarezjosefernando-prog\\ModulosTienda\\obj\\",
+        "projectPath": "/Users/fernandogarcia/InventarioModulos/ModulosTienda/ModulosTienda.csproj",
+        "packagesPath": "/Users/fernandogarcia/.nuget/packages/",
+        "outputPath": "/Users/fernandogarcia/InventarioModulos/ModulosTienda/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bernyv\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/fernandogarcia/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
+            "framework": "net9.0",
             "targetAlias": "net9.0",
             "projectReferences": {}
           }
@@ -45,10 +39,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net9.0": {
+          "framework": "net9.0",
           "targetAlias": "net9.0",
           "dependencies": {
             "MySql.Data": {
@@ -67,6 +62,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.16, 9.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[9.0.16, 9.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.16, 9.0.16]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -75,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
