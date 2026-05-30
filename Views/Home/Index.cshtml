@@ -149,9 +149,10 @@
         <h3>Usuarios</h3>
         <p>Administrar usuarios del sistema</p>
     </a>
-}
+    }
 @if (rol == "AD" || rol == "MA"){
-        <a class="modulo-card" href="#">
+    
+        <a class="modulo-card" asp-controller="Clientes" asp-action="Clientes">
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
         <h3>Clientes</h3>
         <p>Gestiona la información de clientes</p>

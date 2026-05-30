@@ -30,5 +30,21 @@ namespace ModulosTienda.Models
         
     }
 
+    public class Cliente
+    {
+        public int idCliente { get; set; }
+        public string nombre { get; set; }
+        public string RFC { get; set; }
+        public string tipoCliente { get; set; }
+        public string telefono { get; set; }
+        public string email { get; set; }
+        public string direccion { get; set; }
+        public string ciudad { get; set; }
+        public string estado { get; set; }
+        public string cp { get; set; }
+        public string pais { get; set; }
+        public DateTime fechaRegistro { get; set; }
+        public bool activo { get; set; }
+    }
 
 }

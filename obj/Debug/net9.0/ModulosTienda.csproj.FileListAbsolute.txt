@@ -103,12 +103,6 @@ C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Deb
 C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets.build.json
 C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets.development.json
 C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets.build.endpoints.json
-C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets/msbuild.ModulosTienda.Microsoft.AspNetCore.StaticWebAssets.props
-C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets/msbuild.ModulosTienda.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets/msbuild.build.ModulosTienda.props
-C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.ModulosTienda.props
-C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.ModulosTienda.props
-C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets.pack.json
 C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/staticwebassets.upToDateCheck.txt
 C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/ModulosT.6CB46962.Up2Date
 C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/obj/Debug/net9.0/ModulosTienda.dll
@@ -338,12 +332,6 @@ C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Deb
 C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets\msbuild.ModulosTienda.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets\msbuild.ModulosTienda.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets\msbuild.build.ModulosTienda.props
-C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.ModulosTienda.props
-C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.ModulosTienda.props
-C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets.pack.json
 C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\ModulosT.6CB46962.Up2Date
 C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\ModulosTienda.dll
@@ -351,3 +339,8 @@ C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Deb
 C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\ModulosTienda.pdb
 C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\ModulosTienda.genruntimeconfig.cache
 C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\ref\ModulosTienda.dll
+C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\bernyv\source\repos\garciajuarezjosefernando-prog\ModulosTienda\obj\Debug\net9.0\staticwebassets.build.json.cache

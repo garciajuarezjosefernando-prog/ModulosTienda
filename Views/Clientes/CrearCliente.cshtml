@@ -1,0 +1,129 @@
+﻿@model Cliente
+
+<button type="button" class="btn btn-secondary" style=" background:
+                linear-gradient(
+                180deg,
+                #CC27F5,
+                #3A0344
+                );
+                border:none;"
+        onclick="confirmarSalida('@Url.Action("Productos", "Productos")')">
+    ⬅ Regresar
+</button>
+
+
+
+<form asp-controller="Clientes" asp-action="GuardarCliente" method="post">
+    <div class="card shadow">
+
+        <div class="card-header text-white"
+             style="
+                background:
+                linear-gradient(
+                    180deg,
+                    #CC27F5,
+                    #3A0344
+                );
+             ">
+
+            <div class="d-flex justify-content-between">
+
+                <h3>NUEVO CLIENTE</h3>
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <table class="table">
+
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input asp-for="nombre" class="form-control" required /></td>
+        </tr>
+
+        <tr>
+            <td><label>RFC</label></td>
+            <td><input asp-for="RFC" class="form-control" maxlength="13" required /></td>
+        </tr>
+
+        <tr>
+            <td><label>Tipo Cliente</label></td>
+            <td>
+                <select asp-for="tipoCliente" class="form-control">
+                    <option value="">-- Selecciona --</option>
+                    <option value="NORMAL">Normal</option>
+                    <option value="VIP">VIP</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Teléfono</label></td>
+            <td><input asp-for="telefono" class="form-control" required /></td>
+        </tr>
+
+        <tr>
+            <td><label>Email</label></td>
+            <td><input asp-for="email" type="email" class="form-control" required /></td>
+        </tr>
+
+        <tr>
+            <td><label>Dirección</label></td>
+            <td><input asp-for="direccion" class="form-control" required /></td>
+        </tr>
+
+        <tr>
+            <td><label>Ciudad</label></td>
+            <td><input asp-for="ciudad" class="form-control" required /></td>
+        </tr>
+
+        <tr>
+            <td><label>Estado</label></td>
+            <td><input asp-for="estado" class="form-control" required /></td>
+        </tr>
+
+        <tr>
+            <td><label>CP</label></td>
+            <td><input asp-for="cp" class="form-control" required /></td>
+        </tr>
+
+        <tr>
+            <td><label>País</label></td>
+            <td><input asp-for="pais" class="form-control" required /></td>
+        </tr>
+
+        @* <tr>
+            <td><label>Activo</label></td>
+            <td>
+                <input type="checkbox" name="activo" value="true" />
+                <input type="hidden" name="activo" value="false" />
+            </td>
+        </tr> *@
+
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn btn-success">
+                    Guardar Cliente
+                </button>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+@if (TempData["Error"] != null)
+{
+    <script>
+        alert("@TempData["Error"]");
+    </script>
+}
+
+@if (TempData["Exito"] != null)
+{
+<script>
+    alert("@TempData["Exito"]");
+    window.location.href = '@Url.Action("Productos", "Productos")';
+</script>
+}
