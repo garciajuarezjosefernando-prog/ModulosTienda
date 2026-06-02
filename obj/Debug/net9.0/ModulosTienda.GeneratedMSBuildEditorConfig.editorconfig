@@ -32,6 +32,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXJDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Clientes/EditarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdGFyQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Clientes/ListadoClientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcTGlzdGFkb0NsaWVudGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/bernyv/source/repos/garciajuarezjosefernando-prog/ModulosTienda/Views/Comisiones/Comisiones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taXNpb25lc1xDb21pc2lvbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

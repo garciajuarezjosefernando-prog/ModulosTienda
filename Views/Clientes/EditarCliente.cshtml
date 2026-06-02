@@ -12,8 +12,8 @@
 </button>
 
 
-
-<form asp-controller="Clientes" asp-action="GuardarCliente" method="post">
+<form asp-controller="Clientes" asp-action="ListadoEditarCliente" method="post">
+    
     <div class="card shadow">
 
         <div class="card-header text-white"
@@ -28,7 +28,7 @@
 
             <div class="d-flex justify-content-between">
 
-                <h3>NUEVO CLIENTE</h3>
+                <h3>EDITAR CLIENTE</h3>
 
 
 
@@ -36,8 +36,12 @@
 
         </div>
     </div>
+
     <table class="table">
 
+        <input type="hidden" asp-for="idCliente" />
+
+       
         <tr>
             <td><label>Nombre</label></td>
             <td><input asp-for="nombre" class="form-control" required /></td>
@@ -45,14 +49,16 @@
 
         <tr>
             <td><label>RFC</label></td>
-            <td><input asp-for="RFC" class="form-control" maxlength="13" required /></td>
+            <td>
+                <!-- 🔒 No editable -->
+                <input asp-for="RFC" class="form-control" readonly />
+            </td>
         </tr>
 
         <tr>
             <td><label>Tipo Cliente</label></td>
             <td>
                 <select asp-for="tipoCliente" class="form-control">
-                    <option value="">-- Selecciona --</option>
                     <option value="NORMAL">Normal</option>
                     <option value="VIP">VIP</option>
                 </select>
@@ -66,7 +72,7 @@
 
         <tr>
             <td><label>Email</label></td>
-            <td><input asp-for="email" type="email" class="form-control" required /></td>
+            <td><input asp-for="email" class="form-control" required /></td>
         </tr>
 
         <tr>
@@ -94,18 +100,17 @@
             <td><input asp-for="pais" class="form-control" required /></td>
         </tr>
 
-        @* <tr>
+        <tr>
             <td><label>Activo</label></td>
             <td>
-                <input type="checkbox" name="activo" value="true" />
-                <input type="hidden" name="activo" value="false" />
+                <input asp-for="activo" type="checkbox" />
             </td>
-        </tr> *@
+        </tr>
 
         <tr>
             <td colspan="2">
                 <button type="submit" class="btn btn-success">
-                    Guardar Cliente
+                    Guardar Cambios
                 </button>
             </td>
         </tr>
@@ -113,19 +118,12 @@
     </table>
 </form>
 
-@if (TempData["Error"] != null)
+@if (TempData["Mensaje"] != null)
 {
     <script>
-        alert("@TempData["Error"]");
+        alert("@TempData["Mensaje"]");
+        window.location.href = '@Url.Action("ListadoClientes", "Clientes")';
     </script>
-}
-
-@if (TempData["Exito"] != null)
-{
-<script>
-    alert("@TempData["Exito"]");
-    window.location.href = '@Url.Action("Clientes", "Clientes")';
-</script>
 }
 
 <script>

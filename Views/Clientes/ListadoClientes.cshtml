@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Cliente>
+
+<button type="button" class="btn btn-secondary" style=" background:
+                linear-gradient(
+                180deg,
+                #CC27F5,
+                #3A0344
+                );
+                border:none;"
+        onclick="confirmarSalida('@Url.Action("Clientes", "Clientes")')">
+    ⬅ Regresar
+</button>
+
+<div class="card shadow">
+
+    <div class="card-header text-white"
+         style="
+                background:
+                linear-gradient(
+                    180deg,
+                    #CC27F5,
+                    #3A0344
+                );
+             ">
+
+        <div class="d-flex justify-content-between">
+
+            <h3>LISTADO CLIENTES</h3>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>RFC</th>
+            <th>Email</th>
+            <th>Activo</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.nombre</td>
+                <td>@item.RFC</td>
+                <td>@item.email</td>
+                <td>@(item.activo ? "Sí" : "No")</td>
+
+                <td>
+                    <a class="btn btn-warning"
+                       href="@Url.Action("EditarCliente", "Clientes", new { id = item.idCliente })">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<script>
+    let formularioModificado = false;
+
+    // Detectar cambios en cualquier input del formulario
+    document.querySelectorAll("input").forEach(input => {
+        input.addEventListener("change", () => {
+            formularioModificado = true;
+        });
+    });
+
+    function confirmarSalida(url) {
+        if (formularioModificado) {
+            let confirmar = confirm("⚠️ Tienes cambios sin guardar. ¿Seguro que deseas salir?");
+            if (confirmar) {
+                window.location.href = url;
+            }
+        } else {
+            window.location.href = url;
+        }
+    }
+</script>
