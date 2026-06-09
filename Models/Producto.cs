@@ -11,5 +11,10 @@ namespace ModulosTienda.Models
         public int Maximo { get; set; }
         public int Minimo { get; set; }
         public string Detalle { get; set; }
+        
+        //Inventario Fernando
+        public int Existencia { get; set; }
+        public int PorComision { get; set; }
+        public bool Estatus { get; set; }
     }
 }

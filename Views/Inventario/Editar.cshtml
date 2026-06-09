@@ -1,0 +1,290 @@
+@{
+    ViewData["Title"] =
+        "Editar Producto";
+}
+
+<div class="container-fluid mt-3">
+
+    <div class="card shadow">
+
+        <div class="card-header text-white"
+             style="
+             background:
+             linear-gradient(
+                180deg,
+                #CC27F5,
+                #3A0344
+             );
+             ">
+
+            <h3>
+                EDITAR PRODUCTO
+            </h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <label>Producto</label>
+
+                    <input
+                        id="producto"
+                        class="form-control"
+                        readonly />
+                </div>
+
+                <div class="col-md-4">
+                    <label>Descripción</label>
+
+                    <input
+                        id="descripcion"
+                        class="form-control" />
+                </div>
+
+                <div class="col-md-2">
+                    <label>UM</label>
+
+                    <input
+                        id="um"
+                        class="form-control" />
+                </div>
+
+            </div>
+
+            <br />
+
+            <div class="row">
+
+                <div class="col-md-2">
+                    <label>Precio</label>
+
+                    <input
+                        id="precio"
+                        class="form-control" />
+                </div>
+
+                <div class="col-md-2">
+                    <label>Existencia</label>
+
+                    <input
+                        id="existencia"
+                        class="form-control" />
+                </div>
+
+                <div class="col-md-2">
+                    <label>Máximo</label>
+
+                    <input
+                        id="maximo"
+                        class="form-control" />
+                </div>
+
+                <div class="col-md-2">
+                    <label>Mínimo</label>
+
+                    <input
+                        id="minimo"
+                        class="form-control" />
+                </div>
+
+                <div class="col-md-2">
+                    <label>Comisión</label>
+
+                    <input
+                        id="comision"
+                        class="form-control" />
+                </div>
+
+            </div>
+
+            <br />
+
+            <button
+                class="btn text-white"
+                style="
+                background:
+                linear-gradient(
+                    180deg,
+                    #CC27F5,
+                    #3A0344
+                );
+                "
+                onclick="guardar()">
+
+                Guardar
+
+            </button>
+            <button
+                class="btn text-white ms-2"
+                style="
+                background:
+                linear-gradient(
+                    180deg,
+                    #CC27F5,
+                    #3A0344
+                );
+                border:none; "onclick="cancelar()">
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+window.onload = function()
+{
+    cargarProducto();
+};
+
+function cargarProducto()
+{
+    let producto =
+        '@ViewBag.Producto';
+
+    fetch(
+        '/Inventario/ObtenerProducto?producto='
+        +
+        encodeURIComponent(
+            producto
+        )
+    )
+    .then(r => r.json())
+    .then(data =>
+    {
+        document.getElementById(
+            "producto"
+        ).value =
+        data.producto;
+
+        document.getElementById(
+            "descripcion"
+        ).value =
+        data.descripcion;
+
+        document.getElementById(
+            "um"
+        ).value =
+        data.um;
+
+        document.getElementById(
+            "precio"
+        ).value =
+        data.precio;
+
+        document.getElementById(
+            "existencia"
+        ).value =
+        data.existencia;
+
+        document.getElementById(
+            "maximo"
+        ).value =
+        data.maximo;
+
+        document.getElementById(
+            "minimo"
+        ).value =
+        data.minimo;
+
+        document.getElementById(
+            "comision"
+        ).value =
+        data.porComision;
+    });
+}
+
+function guardar()
+{
+    let producto =
+    {   
+        product:
+            document.getElementById(
+                "producto"
+            ).value,
+
+        descripcion:
+            document.getElementById(
+                "descripcion"
+            ).value,
+
+        um:
+            document.getElementById(
+                "um"
+            ).value,
+
+        precio:
+            document.getElementById(
+                "precio"
+            ).value,
+
+        existencia:
+            document.getElementById(
+                "existencia"
+            ).value,
+
+        maximo:
+            document.getElementById(
+                "maximo"
+            ).value,
+
+        minimo:
+            document.getElementById(
+                "minimo"
+            ).value,
+
+        porComision:
+            document.getElementById(
+                "comision"
+            ).value
+    };
+
+    fetch(
+        '/Inventario/GuardarProducto',
+        {
+            method:'POST',
+
+            headers:
+            {
+                'Content-Type':
+                'application/json'
+            },
+
+            body:
+                JSON.stringify(
+                    producto
+                )
+        }
+    )
+    .then(r => r.json())
+    .then(data =>
+    {
+        if(data.ok)
+        {
+            alert(
+                "Producto actualizado"
+            );
+
+            window.location.href =
+                "/Inventario/Inventario";
+        }
+    });
+}
+function cancelar()
+{
+    if(
+        confirm(
+            "¿Desea cancelar los cambios?"
+        )
+    )
+    {
+        window.location.href =
+            "/Inventario/Inventario";
+    }
+}
+</script>

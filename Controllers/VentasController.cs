@@ -100,6 +100,30 @@
 
     if(venta.IdVenta > 0)
     {
+
+        string estatusAnterior = "";
+
+string queryEstatus =
+@"SELECT Estatus
+FROM Ventas
+WHERE idVenta = @idVenta";
+
+        MySqlCommand cmdEstatus =
+            new MySqlCommand(
+                queryEstatus,
+                conn,
+                trans
+            );
+
+        cmdEstatus.Parameters.AddWithValue(
+            "@idVenta",
+            venta.IdVenta
+        );
+
+        estatusAnterior =
+            cmdEstatus.ExecuteScalar()
+            ?.ToString() ?? "";
+
         string updateVenta =
         @"UPDATE Ventas SET
 
@@ -353,6 +377,83 @@
             throw;
         }
     }
+    bool descontarInventario = false;
+
+        if(venta.Estatus == "PA")
+        {
+            if(venta.IdVenta == 0)
+            {
+                descontarInventario = true;
+            }
+        }
+        if(descontarInventario)
+{
+    // VALIDAR EXISTENCIAS
+
+    foreach(var p in venta.productos)
+
+    {
+
+        string queryExistencia =
+        @"SELECT existencia
+          FROM Productos
+          WHERE producto = @producto";
+
+        MySqlCommand cmdExistencia =
+            new MySqlCommand(
+                queryExistencia,
+                conn,
+                trans
+            );
+        cmdExistencia.Parameters.AddWithValue(
+            "@producto",
+            p.Producto
+        );
+        int existenciaActual =
+            Convert.ToInt32(
+                cmdExistencia.ExecuteScalar()
+            );
+        if(existenciaActual < p.Cantidad)
+        {
+            throw new Exception(
+                "Inventario insuficiente para: "
+                + p.Producto
+            );
+        }
+    }
+
+    // DESCONTAR INVENTARIO
+    foreach(var p in venta.productos)
+    {
+        string queryInventario =
+        @"UPDATE Productos
+
+        SET existencia =
+            existencia - @cantidad
+
+        WHERE producto =
+            @producto";
+
+        MySqlCommand cmdInv =
+            new MySqlCommand(
+                queryInventario,
+                conn,
+                trans
+            );
+
+        cmdInv.Parameters.AddWithValue(
+            "@cantidad",
+            p.Cantidad
+        );
+
+        cmdInv.Parameters.AddWithValue(
+            "@producto",
+            p.Producto
+        );
+
+        cmdInv.ExecuteNonQuery();
+    }
+}
 
                 trans.Commit();
 

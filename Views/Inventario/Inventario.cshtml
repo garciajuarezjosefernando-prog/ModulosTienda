@@ -1,0 +1,270 @@
+@{
+    ViewData["Title"] = "Inventario";
+}
+
+<div class="container-fluid mt-3">
+
+    <div class="card shadow">
+
+        <div class="card-header text-white"
+             style="
+                background:
+                linear-gradient(
+                    180deg,
+                    #CC27F5,
+                    #3A0344
+                );
+             ">
+
+            <div class="d-flex justify-content-between">
+
+                <h3>INVENTARIO</h3>
+
+                <h4>
+                    @Context.Session.GetString("nombre")
+                </h4>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+
+                <div class="col-md-2">
+
+                    <label>Producto</label>
+
+                    <input
+                        type="text"
+                        id="txtProducto"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label>Descripción</label>
+
+                    <input
+                        type="text"
+                        id="txtDescripcion"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <label>&nbsp;</label>
+
+                    <button
+                        class="btn text-white w-100"
+                        style="
+                        background:
+                        linear-gradient(
+                            180deg,
+                            #CC27F5,
+                            #3A0344
+                        );
+                        border:none;
+                        "
+                        onclick="buscar()">
+
+                        Buscar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <table class="table table-bordered">
+
+                <thead
+                    style="
+                        background:#10B5F5;
+                        color:white;
+                    ">
+
+                    <tr>
+
+                        <th>Producto</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Existencia</th>
+                        <th>Máximo</th>
+                        <th>Mínimo</th>
+                        <th width="60"></th>
+                        <th width="60"></th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaProductos">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+<style>
+
+.filaAlerta td
+
+{
+    background-color:#ff4d4d !important;
+    color:white !important;
+    font-weight:bold;
+}
+</style>
+<script>
+
+window.onload = function()
+{
+    cargarProductos();
+};
+
+function cargarProductos()
+{
+    fetch(
+        '/Inventario/ObtenerProductos'
+    )
+    .then(r => r.json())
+    .then(data =>
+    {
+        pintarTabla(data);
+    });
+}
+
+function pintarTabla(lista)
+{
+    console.log(lista);
+        
+         let tbody =
+        document.getElementById(
+            "tablaProductos"
+        );
+
+    tbody.innerHTML = "";
+
+    lista.forEach(item =>
+    {
+        let color = "";
+
+if(item.existencia <= item.minimo)
+{
+    color =
+            color = "filaAlerta";
+            }
+
+        tbody.innerHTML +=
+        `
+        <tr class="${color}">
+
+            <td>${item.product}</td>
+
+            <td>${item.descripcion}</td>
+
+            <td>${item.precio}</td>
+
+            <td>${item.existencia}</td>
+
+            <td>${item.maximo}</td>
+
+            <td>${item.minimo}</td>
+
+            <td>
+
+    <button
+        class="btn btn-dark btn-sm"
+        onclick="editarProducto('${item.product}')">
+        ✏️
+    </button>
+</td>
+<td>
+    <button
+       class="btn btn-dark btn-sm"
+        onclick="eliminarProducto('${item.product}')">
+        <span style="color:red;">❌</span>
+    </button>
+</td>
+        </tr>
+        `;
+    });
+}
+function editarProducto(
+    producto)
+{
+    window.location.href =
+        "/Inventario/Editar?producto="
+        +
+        encodeURIComponent(
+            producto
+        );
+}
+
+function eliminarProducto(producto)
+{
+    if(
+        !confirm(
+            "¿Desea desactivar el producto?"
+        )
+    )
+    {
+        return;
+    }
+
+    fetch(
+        '/Inventario/EliminarProducto?producto='
+        +
+        producto,
+        {
+            method:'POST'
+        }
+    )
+    .then(r => r.json())
+    .then(data =>
+    {
+        if(data.ok)
+        {
+            cargarProductos();
+        }
+    });
+}
+
+function buscar()
+{
+    let producto =
+        document.getElementById(
+            "txtProducto"
+        ).value;
+
+    let descripcion =
+        document.getElementById(
+            "txtDescripcion"
+        ).value;
+
+    fetch(
+        '/Inventario/BuscarProductosInventario'
+        +
+        '?producto='
+        +
+        encodeURIComponent(producto)
+        +
+        '&descripcion='
+        +
+        encodeURIComponent(descripcion)
+    )
+    .then(r => r.json())
+    .then(data =>
+    {
+        pintarTabla(data);
+    });
+}
+</script>
