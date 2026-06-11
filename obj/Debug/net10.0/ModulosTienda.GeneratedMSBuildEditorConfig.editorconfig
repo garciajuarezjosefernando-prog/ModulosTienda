@@ -27,6 +27,22 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Clientes/Clientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZXMvQ2xpZW50ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Clientes/CrearCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZXMvQ3JlYXJDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Clientes/EditarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZXMvRWRpdGFyQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Clientes/ListadoClientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZXMvTGlzdGFkb0NsaWVudGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Comisiones/Comisiones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taXNpb25lcy9Db21pc2lvbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -37,6 +53,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Inventario/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52ZW50YXJpby9FZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Inventario/Inventario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52ZW50YXJpby9JbnZlbnRhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Productos/EditarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdG9zL0VkaXRhclByb2R1Y3RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Productos/ListadoProductoEditar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdG9zL0xpc3RhZG9Qcm9kdWN0b0VkaXRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/fernandogarcia/InventarioModulos/ModulosTienda/Views/Productos/NuevoProducto.cshtml]

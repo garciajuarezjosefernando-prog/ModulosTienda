@@ -22,78 +22,6 @@ namespace ModulosTienda.Controllers
             return View();
         }
 
-        public IActionResult EditarProducto(string id)
-        {
-            ProductoSTRUC model = new ProductoSTRUC();
-
-            using (MySqlConnection conn = new MySqlConnection(_configuration.GetConnectionString("MySqlConnection")))
-            {
-                conn.Open();
-
-                string query = "SELECT * FROM Productos WHERE producto = @producto";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@producto", id);
-
-                    var reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        model.producto = reader["producto"].ToString();
-                        model.descripcion = reader["descripcion"].ToString();
-                        model.UM = reader["UM"].ToString();
-                        model.precio = Convert.ToDecimal(reader["precio"]);
-                        model.maximoAlm = Convert.ToInt32(reader["maximoAlm"]);
-                        model.minimoAlm = Convert.ToInt32(reader["minimoAlm"]);
-                        model.porComision = Convert.ToDecimal(reader["porComision"]);
-                        model.activo = Convert.ToBoolean(reader["activo"]);
-                    }
-                }
-            }
-
-            return View(model);
-        }
-
-        public IActionResult ListadoProductoEditar(string buscar)
-        {
-            List<ProductoSTRUC> lista = new List<ProductoSTRUC>();
-
-            using (MySqlConnection conn = new MySqlConnection(_configuration.GetConnectionString("MySqlConnection")))
-            {
-                conn.Open();
-
-                string query = @"SELECT producto, descripcion, activo 
-                         FROM Productos
-                         WHERE producto LIKE @buscar OR descripcion LIKE @buscar 
-                         ORDER BY activo DESC";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@buscar", "%" + buscar + "%");
-
-                    var reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        lista.Add(new ProductoSTRUC
-                        {
-                            producto = reader["producto"].ToString(),
-                            descripcion = reader["descripcion"].ToString(),
-                           UM = "",
-                           precio = 0,
-                           maximoAlm = 0,
-                           minimoAlm = 0,
-                           porComision = 0,
-                           activo = Convert.ToBoolean(reader["activo"])
-                        });
-                    }
-                }
-            }
-
-            return View(lista);
-        }
-
         [HttpPost]
         public IActionResult GuardarProducto(ProductoSTRUC model)
         {
@@ -139,44 +67,8 @@ namespace ModulosTienda.Controllers
                 }
             }
 
-            TempData["Exito"] = " Producto guardado correctamente";
+            TempData["Exito"] = "✅ Producto guardado correctamente";
             return RedirectToAction("NuevoProducto");
         }
-
-        [HttpPost]
-public IActionResult EditarProducto(ProductoSTRUC model)
-{
-    using (MySqlConnection conn = new MySqlConnection(_configuration.GetConnectionString("MySqlConnection")))
-    {
-        conn.Open();
-
-        string query = @"UPDATE Productos SET
-                         descripcion = @descripcion,
-                         UM = @UM,
-                         precio = @precio,
-                         maximoAlm = @maximoAlm,
-                         minimoAlm = @minimoAlm,
-                         porComision = @porComision,
-                         activo = @activo
-                         WHERE producto = @producto";
-
-        using (MySqlCommand cmd = new MySqlCommand(query, conn))
-        {
-            cmd.Parameters.AddWithValue("@producto", model.producto);
-            cmd.Parameters.AddWithValue("@descripcion", model.descripcion);
-            cmd.Parameters.AddWithValue("@UM", model.UM);
-            cmd.Parameters.AddWithValue("@precio", model.precio);
-            cmd.Parameters.AddWithValue("@maximoAlm", model.maximoAlm);
-            cmd.Parameters.AddWithValue("@minimoAlm", model.minimoAlm);
-            cmd.Parameters.AddWithValue("@porComision", model.porComision);
-                    cmd.Parameters.AddWithValue("@activo", model.activo);
-
-                    cmd.ExecuteNonQuery();
-        }
-    }
-
-    TempData["Mensaje"] = " Producto actualizado correctamente";
-    return RedirectToAction("EditarProducto", new { id = model.producto });
-}
     }
 }

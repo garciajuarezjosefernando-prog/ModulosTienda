@@ -223,7 +223,7 @@ public JsonResult BuscarProductosInventario(
 
             FROM Productos
 
-            WHERE Estatus = 1
+            WHERE activo = 1
 
             AND producto LIKE @texto
 
@@ -243,7 +243,7 @@ public JsonResult BuscarProductosInventario(
 
             FROM Productos
 
-            WHERE Estatus = 1
+            WHERE activo = 1
 
             AND descripcion LIKE @texto
 
@@ -263,7 +263,7 @@ public JsonResult BuscarProductosInventario(
 
             FROM Productos
 
-            WHERE Estatus = 1
+            WHERE activo = 1
 
             ORDER BY descripcion
 
@@ -347,7 +347,7 @@ public JsonResult EliminarProducto(
         string query =
         @"UPDATE Productos
 
-        SET Estatus = 0
+        SET activo = 0
 
         WHERE producto = @producto";
 
@@ -399,7 +399,7 @@ public JsonResult ObtenerProductos()
 
         FROM Productos
 
-        WHERE Estatus = 1
+        WHERE activo = 1
 
         ORDER BY descripcion
 
