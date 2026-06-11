@@ -183,7 +183,7 @@ namespace ModulosTienda.Controllers
                         model.estado = reader["estado"].ToString();
                         model.cp = reader["cp"].ToString();
                         model.pais = reader["pais"].ToString();
-                        model.activo = Convert.ToBoolean(reader["activo"]);
+                        model.activo = true;
                     }
                 }
             }
