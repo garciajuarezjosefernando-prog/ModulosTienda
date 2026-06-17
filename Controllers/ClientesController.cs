@@ -72,6 +72,7 @@ namespace ModulosTienda.Controllers
                     cmd.Parameters.AddWithValue("@estado", model.estado);
                     cmd.Parameters.AddWithValue("@cp", model.cp);
                     cmd.Parameters.AddWithValue("@pais", model.pais);
+                    cmd.Parameters.AddWithValue("@activo", true);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -183,7 +184,7 @@ namespace ModulosTienda.Controllers
                         model.estado = reader["estado"].ToString();
                         model.cp = reader["cp"].ToString();
                         model.pais = reader["pais"].ToString();
-                        model.activo = true;
+                        model.activo = Convert.ToBoolean( reader["activo"]);
                     }
                 }
             }

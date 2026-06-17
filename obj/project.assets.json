@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net10.0": {
+    "net9.0": {
       "BouncyCastle.Cryptography/2.6.2": {
         "type": "package",
         "compile": {
@@ -83,12 +83,12 @@
           "ZstdSharp.Port": "0.8.6"
         },
         "compile": {
-          "lib/net10.0/MySql.Data.dll": {
+          "lib/net9.0/MySql.Data.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net10.0/MySql.Data.dll": {
+          "lib/net9.0/MySql.Data.dll": {
             "related": ".xml"
           }
         },
@@ -591,7 +591,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net10.0": [
+    "net9.0": [
       "MySql.Data >= 9.7.0"
     ]
   },
@@ -617,7 +617,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net10.0"
+        "net9.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -625,8 +625,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net10.0": {
-          "targetAlias": "net10.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "projectReferences": {}
         }
       },
@@ -638,13 +638,13 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
+        "auditMode": "direct"
       },
       "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
-      "net10.0": {
-        "targetAlias": "net10.0",
+      "net9.0": {
+        "targetAlias": "net9.0",
         "dependencies": {
           "MySql.Data": {
             "target": "Package",
