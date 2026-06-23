@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ModulosTienda")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f6d269b6ffe87eaab727f445a947869b4e2062a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa1ae335bb6b3f77d20720ce653bafbfcce7b369")]
 [assembly: System.Reflection.AssemblyProductAttribute("ModulosTienda")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ModulosTienda")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

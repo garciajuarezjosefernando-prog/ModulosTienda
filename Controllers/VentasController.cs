@@ -44,7 +44,7 @@
 
                     string query =
                     @"SELECT * FROM Productos
-                    WHERE producto LIKE @texto";
+                    WHERE descripcion LIKE @texto";
 
                     MySqlCommand cmd =
                         new MySqlCommand(query, conn);
