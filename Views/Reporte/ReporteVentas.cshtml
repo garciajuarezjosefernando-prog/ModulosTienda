@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ProductoSTRUC>
+
+<div class="mb-3">
+    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary" style=" background:
+        linear-gradient(
+        180deg,
+        #CC27F5,
+        #3A0344
+        );
+        border:none;">
+        ⬅ Regresar
+    </a>
+</div>
+
+<div class="card shadow">
+
+    <div class="card-header text-white"
+         style="
+        background:
+        linear-gradient(
+        180deg,
+        #CC27F5,
+        #3A0344
+        );
+        ">
+
+        <div class="d-flex justify-content-between">
+            <h3>CONSULTA PRODUCTO/VENTA</h3>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>
+                <input type="text" name="fechaILB" class="form-control" placeholder="Desde" />
+                <input type="date" id="fechaI" name="fechaI" class="form-control" />
+            </td>
+            <td>
+                <input type="text" name="fechaFLB" class="form-control" placeholder="Hasta" />
+                <input type="date" id="fechaF" name="fechaI" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="buscar" class="form-control" placeholder="Buscar por producto o descripción..." />
+            </td>
+            <td>
+                <button type="submit" class="btn btn-primary" style=" background:
+                    linear-gradient(
+                    180deg,
+                    #CC27F5,
+                    #3A0344
+                    );
+                    border:none;">
+                    Buscar
+                </button>
+            </td>
+           
+            
+
+        </tr>
+
+    </table>
+    
+
+    
+
+   
+
+       
+
+   
+</div>

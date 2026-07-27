@@ -2,9 +2,7 @@
 
 namespace ModulosTienda.Models
 {
-    public class ModelosModulosTienda
-    {
-    }
+    
 
     public class Usuario
     {
@@ -27,7 +25,8 @@ namespace ModulosTienda.Models
         public int minimoAlm { get; set; }
         public decimal porComision { get; set; }
         public bool activo { get; set; }
-        
+        public decimal costo { get; set; }
+
     }
 
     public class Cliente

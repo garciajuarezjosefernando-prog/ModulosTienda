@@ -46,12 +46,9 @@ namespace ModulosTienda.Controllers
                         {
                             producto = reader["producto"].ToString(),
                             descripcion = reader["descripcion"].ToString(),
-                            UM = reader["UM"].ToString(),
-                            precio = Convert.ToDecimal(reader["precio"]),
-                            maximoAlm = Convert.ToInt32(reader["maximoAlm"]),
-                            minimoAlm = Convert.ToInt32(reader["minimoAlm"]),
-                            porComision = Convert.ToDecimal(reader["porComision"]),
+                            
                             activo = Convert.ToBoolean(reader["activo"])
+                            
 
                         });
                     }
@@ -87,6 +84,7 @@ namespace ModulosTienda.Controllers
                         model.minimoAlm = Convert.ToInt32(reader["minimoAlm"]);
                         model.porComision = Convert.ToDecimal(reader["porComision"]);
                         model.activo = Convert.ToBoolean(reader["activo"]);
+                        model.costo = Convert.ToDecimal(reader["costo"]);
                     }
                 }
             }
@@ -121,9 +119,9 @@ namespace ModulosTienda.Controllers
 
                 // ✅ Insertar
                 string queryInsert = @"INSERT INTO Productos
-        (producto, descripcion, UM, precio, maximoAlm, minimoAlm, porComision)
+        (producto, descripcion, UM, precio, maximoAlm, minimoAlm, porComision, costo)
         VALUES
-        (@producto, @descripcion, @UM, @precio, @maximoAlm, @minimoAlm, @porComision)";
+        (@producto, @descripcion, @UM, @precio, @maximoAlm, @minimoAlm, @porComision, @costo)";
 
                 using (MySqlCommand cmd = new MySqlCommand(queryInsert, conn))
                 {
@@ -134,7 +132,8 @@ namespace ModulosTienda.Controllers
                     cmd.Parameters.AddWithValue("@maximoAlm", model.maximoAlm);
                     cmd.Parameters.AddWithValue("@minimoAlm", model.minimoAlm);
                     cmd.Parameters.AddWithValue("@porComision", model.porComision);
-                   
+                    cmd.Parameters.AddWithValue("@costo", model.costo);
+
 
                     cmd.ExecuteNonQuery();
                 }
@@ -159,7 +158,8 @@ namespace ModulosTienda.Controllers
                         maximoAlm=@maximoAlm,
                         minimoAlm=@minimoAlm,
                         porComision=@porComision,
-                        activo = @activo
+                        activo = @activo,
+                        costo = @costo
                         WHERE producto=@producto";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -172,6 +172,7 @@ namespace ModulosTienda.Controllers
                     cmd.Parameters.AddWithValue("@minimoAlm", model.minimoAlm);
                     cmd.Parameters.AddWithValue("@porComision", model.porComision);
                     cmd.Parameters.AddWithValue("@activo", model.activo);
+                    cmd.Parameters.AddWithValue("@costo", model.costo);
 
                     cmd.ExecuteNonQuery();
                 }
