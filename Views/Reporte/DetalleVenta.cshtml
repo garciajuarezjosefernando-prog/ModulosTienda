@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DetalleVentaSTRUC>
+
+<div class="mb-3">
+    "
+    class="btn btn-secondary">
+    ⬅ Regresar
+</a>
+</div>
+
+<h3>Detalle de Venta</h3>
+@{
+    decimal totalPrecioVenta = Model.Sum(x => x.PrecioVenta);
+    decimal totalGeneral = Model.Sum(x => x.Total);
+}
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Venta</th>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Precio Venta</th>
+            <th>Total</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdVenta</td>
+                <td>@item.Producto</td>
+                <td>@item.Descripcion</td>
+                <td>@item.Cantidad</td>
+                <td>@item.PrecioVenta.ToString("C")</td>
+                <td>@item.Total.ToString("C")</td>
+                <td>@item.UsuarioVenta</td>
+            </tr>
+        }
+
+    </tbody>
+
+    <tfoot>
+        <tr style="font-weight:bold; background-color:#f8f9fa;">
+            <td colspan="4" class="text-end">
+                Totales:
+            </td>
+
+            <td>
+                @totalPrecioVenta.ToString("C")
+            </td>
+
+            <td>
+                @totalGeneral.ToString("C")
+            </td>
+
+            <td></td>
+        </tr>
+    </tfoot>
+
+</table>

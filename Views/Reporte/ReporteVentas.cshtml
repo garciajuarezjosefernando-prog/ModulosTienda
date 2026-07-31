@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProductoSTRUC>
+﻿@model IEnumerable<ConsultaProductoVenta>
 
 <div class="mb-3">
     <a href="@Url.Action("Index", "Home")" class="btn btn-secondary" style=" background:
@@ -28,37 +28,110 @@
             <h3>CONSULTA PRODUCTO/VENTA</h3>
         </div>
     </div>
+    @{
+        decimal importe = Model.Sum(x => x.ImporteNeto);
+        decimal comision = Model.Sum(x => x.Comision);
+    }
+    <form method="get" asp-action="ReporteVentas" asp-controller="Reporte">
+       
 
-    <table class="table table-bordered table-striped">
-        <tr>
-            <td>
-                <input type="text" name="fechaILB" class="form-control" placeholder="Desde" />
-                <input type="date" id="fechaI" name="fechaI" class="form-control" />
-            </td>
-            <td>
-                <input type="text" name="fechaFLB" class="form-control" placeholder="Hasta" />
-                <input type="date" id="fechaF" name="fechaI" class="form-control" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="text" name="buscar" class="form-control" placeholder="Buscar por producto o descripción..." />
-            </td>
-            <td>
-                <button type="submit" class="btn btn-primary" style=" background:
-                    linear-gradient(
-                    180deg,
-                    #CC27F5,
-                    #3A0344
-                    );
-                    border:none;">
-                    Buscar
-                </button>
-            </td>
-           
-            
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>
+                    <label>Fecha Inicial</label>
+                    <input type="date" id="fechaI" name="fechaI" class="form-control" />
+                </td>
 
-        </tr>
+                <td>
+                    <label>Fecha Final</label>
+                    <input type="date" id="fechaF" name="fechaF" class="form-control" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="text"
+                           name="buscar"
+                           class="form-control"
+                           placeholder="Producto o descripción" />
+                </td>
+
+                <td>
+                    <button type="submit"
+                            class="btn btn-primary"
+                            style="background:linear-gradient(180deg,#CC27F5,#3A0344);border:none;">
+                        Buscar
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+    
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Descripción</th>
+                <th>En Nota</th>
+                <th>Ver Nota</th>
+                <th>Importe/Vta</th>
+                <th>Comisión</th>
+                <th>Importe Neto</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Producto</td>
+                        <td>@item.Descripcion</td>
+                        <td>@item.EnNota</td>
+                        <td>
+                            <a class="btn btn-warning btn-sm" style=" background:
+                                linear-gradient(
+                                180deg,
+                                #27F58E,
+                                #079C52
+                                );
+                                border:none;"
+                               href="@Url.Action("DetalleVenta", "Reporte",new { idVenta = item.EnNota })">
+                                Ver
+                            </a>
+                        </td>
+                        <td>@item.ImporteVenta.ToString("C")</td>
+                        <td>@item.Comision.ToString("C")</td>
+                        <td>@item.ImporteNeto.ToString("C")</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+
+        <tfoot>
+            <tr style="font-weight:bold; background-color:#f8f9fa;">
+                <td colspan="4" class="text-end">
+                    Totales:
+                </td>
+
+                <td>
+                    @importe.ToString("C")
+                </td>
+
+                <td>
+                    @comision.ToString("C")
+                </td>
+
+                <td></td>
+            </tr>
+        </tfoot>
+
+        
 
     </table>
     

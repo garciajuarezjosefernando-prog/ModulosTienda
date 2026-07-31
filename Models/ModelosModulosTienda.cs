@@ -46,4 +46,25 @@ namespace ModulosTienda.Models
         public bool activo { get; set; }
     }
 
+    public class ConsultaProductoVenta
+    {
+        public string Producto { get; set; }
+        public string Descripcion { get; set; }
+        public int EnNota { get; set; }
+        public decimal ImporteVenta { get; set; }
+        public decimal Comision { get; set; }
+        public decimal ImporteNeto { get; set; }
+    }
+
+    public class DetalleVentaSTRUC
+    {
+        public int IdVenta { get; set; }
+        public string Producto { get; set; }
+        public string Descripcion { get; set; }
+        public int Cantidad { get; set; }
+        public decimal PrecioVenta { get; set; }
+        public decimal Total { get; set; }
+        public string UsuarioVenta { get; set; }
+    }
+
 }
